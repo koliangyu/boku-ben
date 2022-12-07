@@ -1,12 +1,23 @@
 <script setup>
-import Header from '../components/Header.vue'
+import Footer from '../components/Footer.vue';
+import Header from '../components/Header.vue';
 </script>
 
 <template>
   <div>
     <Header />
-    <div>
-      <slot />
+
+    <div
+      class="bg-[url('/src/assets/img/common/bg/fumino/pc_bg_top.png'),_url('/src/assets/img/common/bg/fumino/pc_bg_under.png')]
+     table-cell align-top bg-[position:top_-300px_left_0,_right_bottom] bg-[length:940px_auto,_594px_auto] bg-no-repeat">
+      <div class="relative">
+        <div class="container mx-auto my-0 pt-0 pb-[212px] min-h-[1000px]">
+          <slot />
+        </div>
+      </div>
+
+      <Footer />
     </div>
+
   </div>
 </template>
