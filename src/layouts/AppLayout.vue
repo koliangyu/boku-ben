@@ -1,6 +1,7 @@
 <script setup>
 import Footer from '../components/Footer.vue';
 import Header from '../components/Header.vue';
+import TwitterFollow from '../components/TwitterFollow.vue';
 </script>
 
 <template>
@@ -19,5 +20,6 @@ import Header from '../components/Header.vue';
       <Footer />
     </div>
 
+    <TwitterFollow />
   </div>
 </template>
