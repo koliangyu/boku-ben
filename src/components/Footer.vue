@@ -25,10 +25,10 @@ const share = [
 </script>
 
 <template>
-  <footer class="group block relative pt-[40px] pr-[350px] pb-[30px] pl-[48px]">
+  <footer class="group block relative pt-[40px] pr-[350px] pb-[30px] pl-[48px] active">
     <div
-      class="opacity-1 absolute right-0 bottom-0 w-[440px] translate-y-[30px]
-    group-active:opacity-100 group-active:translate-y-0 group-active:transition-transform group-active:duration-[600ms]">
+      class="opacity-0 absolute right-0 bottom-0 w-[440px] translate-y-[30px]
+    group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:transition-transform group-[.active]:duration-[600ms]">
       <img src="../assets/img/common/footer/img_footer_fumino.png" alt="">
     </div>
 
@@ -42,10 +42,10 @@ const share = [
       </li>
     </ul>
 
-    <div class="mt-[13px] mb-[23px] mx-0">
+    <div class="mt-[13px] mb-[23px] mx-0 text-[0] tracking-[-.4em]">
       <p class="font-semibold font-montserrat tracking-wider inline-block align-middle text-[15px]">SHARE</p>
       <ul class="text-[0] tracking-[-.4em] inline-block align-middle">
-        <li v-for="item in share" class="inline-block w-[40px] h-[40px] ml-[22px] bg-transparent rounded-[50%] align-top tracking-normal scale-100 transition-transform duration-1000 origin-center
+        <li v-for="item in share" class="peer peer-[]:ml-[18px] inline-block w-[40px] h-[40px] ml-[22px] bg-transparent rounded-[50%] align-top tracking-normal scale-100 transition-transform duration-1000 origin-center
          hover:scale-[.93] hover:transition-transform hover:duration-1000">
           <a :href="item.href" class="block relative w-full h-full" target="_blank">
             <img :src="item.imgUrl"
