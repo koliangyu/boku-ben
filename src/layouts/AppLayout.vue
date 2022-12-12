@@ -1,4 +1,5 @@
 <script setup>
+import BgCanvas from '../components/BgCanvas.vue';
 import Footer from '../components/Footer.vue';
 import Header from '../components/Header.vue';
 import TwitterFollow from '../components/TwitterFollow.vue';
@@ -6,6 +7,8 @@ import TwitterFollow from '../components/TwitterFollow.vue';
 
 <template>
   <div class="font-wrapper">
+    <BgCanvas />
+
     <Header />
 
     <div
