@@ -29,7 +29,7 @@ const share = [
     <div
       class="opacity-0 absolute right-0 bottom-0 w-[440px] translate-y-[30px]
     group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:transition-transform group-[.active]:duration-[600ms]">
-      <img src="../assets/img/common/footer/img_footer_fumino.png" alt="">
+      <img src="@/assets/img/common/footer/img_footer_fumino.png" alt="">
     </div>
 
     <ul>
