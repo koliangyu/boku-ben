@@ -1,5 +1,21 @@
 <script setup>
+import { onMounted, ref } from 'vue'
+import ContentTitle from '../components/ContentTitle.vue'
+import DecoItem from '../components/DecoItem.vue'
 import AppLayout from '../layouts/AppLayout.vue'
+
+const isActive = ref(false)
+
+const layoutProps = {
+  isTop: true,
+  character: {
+    color: '#9ce9f5',
+    bgTop: '/src/assets/img/common/bg/fumino/pc_bg_top.png',
+    bgUnder: '/src/assets/img/common/bg/fumino/pc_bg_under.png',
+    footerImg: '/src/assets/img/common/footer/img_footer_fumino.png',
+    particleColor: '187',
+  },
+}
 
 const news = [
   {
@@ -21,24 +37,31 @@ const news = [
     date: '2020.05.27',
   },
 ]
+
+onMounted(() => {
+  setTimeout(() => {
+    isActive.value = true
+  }, 500)
+})
 </script>
 
 <template>
-  <AppLayout>
-    <div class="relative p-0 text-center">
+  <AppLayout v-bind="layoutProps">
+    <div class="relative p-0 text-center effect_item">
       <div class="relative w-full text-center">
         <img src="@/assets/img/top/img_main.jpg" class="w-full" alt="">
       </div>
       <h2
-        class="absolute top-[10px] right-[18px] w-[70px] h-[419px] active
+        class="absolute top-[10px] right-[18px] w-[70px] h-[419px]
        opacity-0 translate-y-[20px]
        [&.active]:opacity-100 [&.active]:translate-y-0
-       [&.active]:[transition:_transform_.8s_cubic-bezier(.01,_.53,_.37,_.99),_opacity_.6s_ease-in,_-webkit-transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)]">
+       [&.active]:[transition:_transform_.8s_cubic-bezier(.01,_.53,_.37,_.99),_opacity_.6s_ease-in,_-webkit-transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)]"
+        :class="{ active: isActive }">
         <img src="@/assets/img/top/copy_main.svg" class="w-[70px] h-[419px]" alt="[最終問題]　きみが選ぶのは、だれですか。">
       </h2>
     </div>
 
-    <div class="group relative pt-[67px] pb-[93px] px-0 overflow-hidden active
+    <div class="group relative pt-[67px] pb-[93px] px-0 overflow-hidden effect_item
      bg-[url('/src/assets/img/common/bg_grid_repeat.jpg')] bg-[top_left] bg-repeat">
       <div
         class="opacity-0 absolute bottom-0 left-[-30px] w-[334px] translate-x-[-40px]
@@ -47,15 +70,8 @@ const news = [
       </div>
 
       <div class="w-[868px] mx-auto my-0">
-        <div
-          class="mb-[60px] inline-block relative text-[45px] font-montserrat
-         before:opacity-0 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[32px] before:bg-black
-         group-[.active]:before:opacity-100 group-[.active]:before:w-full group-[.active]:before:[transition:_width_.6s_cubic-bezier(.165,_.84,_.44,_1),_opacity_.6s_ease-in]">
-          <h3
-            class="inline-block relative w-auto px-[10px] pt-0 pb-[10px] text-white font-extrabold tracking-[.075em] [-webkit-text-stroke:_1px_#000]">
-            MOVIE
-          </h3>
-        </div>
+        <ContentTitle class="mb-[60px] effect_item">MOVIE</ContentTitle>
+
         <div
           class="opacity-0 translate-y-[30px]
         group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s,_opacity_.6s_ease-in_.6s,_-webkit-transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s]">
@@ -103,32 +119,17 @@ const news = [
       </div>
     </div>
 
-    <div class="group pt-[66px] pb-0 px-0 active
+    <div class="group pt-[66px] pb-0 px-0 effect_item
     bg-[url('/src/assets/img/common/bg/fumino/pc_bg_top.png')] bg-left-top bg-no-repeat bg-contain">
       <div class="w-[868px] mx-auto my-0">
-        <div
-          class="inline-block relative mb-[43px] text-[45px] font-montserrat
-        before:opacity-0 before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[32px] before:bg-black
-        group-[.active]:before:opacity-100 group-[.active]:before:w-full group-[.active]:before:[transition:_width_.6s_cubic-bezier(.165,_.84,_.44,_1),_opacity_.6s_ease-in]">
-          <h3
-            class="inline-block relative w-auto px-[10px] pt-0 pb-[10px] text-white font-extrabold tracking-[.075em] [-webkit-text-stroke:_1px_#000]">
-            NEWS
-          </h3>
-        </div>
+        <ContentTitle class="mb-[43px] effect_item">NEWS</ContentTitle>
 
         <div
           class="opacity-0 translate-y-[30px] text-[0] tracking-[-.4em]
         group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s,_opacity_.6s_ease-in_.6s,_-webkit-transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s]">
           <div class="w-[433px] mr-[30px] inline-block align-top text-[16px] tracking-normal">
             <div class="relative px-0 py-[6px]">
-              <ul>
-                <li class="absolute left-0 w-full h-[6px] top-0 bg-[#9ce9f5]
-               before:absolute before:left-0 before:w-full before:bg-black before:top-0 before:h-[3px]
-               after:absolute after:left-0 after:w-full after:bg-black after:bottom-0 after:h-[1px]"></li>
-                <li class="absolute left-0 w-full h-[6px] bottom-[10px] bg-[#9ce9f5]
-               before:absolute before:left-0 before:w-full before:bg-black before:top-0 before:h-[1px]
-               after:absolute after:left-0 after:w-full after:bg-black after:bottom-0 after:h-[3px]"></li>
-              </ul>
+              <DecoItem :color="layoutProps.character.color"></DecoItem>
 
               <ul class="divide-y-2 divide-black divide-solid">
                 <li v-for="item in news" class="relative pt-[25px] pb-[27.5px] px-0">
@@ -182,7 +183,7 @@ const news = [
     </div>
 
     <div
-      class="opacity-0 translate-y-[30px] pt-[195px] active
+      class="opacity-0 translate-y-[30px] pt-[195px] effect_item
      [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s,_opacity_.6s_ease-in_.6s]">
       <div
         class="relative w-[375px] h-[60px] mx-auto my-0 border-[3px] border-solid border-black rounded-[10px] block

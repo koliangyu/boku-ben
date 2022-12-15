@@ -1,4 +1,8 @@
 <script setup>
+defineProps({
+  characterImg: String,
+})
+
 const official = [
   { name: 'PRIVACY POLICY', href: 'https://www.aniplex.co.jp/help/privacy.html' },
   { name: 'CONTACT', href: 'https://www.aniplex.co.jp/support/user.html' },
@@ -25,11 +29,11 @@ const share = [
 </script>
 
 <template>
-  <footer class="group block relative pt-[40px] pr-[350px] pb-[30px] pl-[48px] active">
+  <footer class="group block relative pt-[40px] pr-[350px] pb-[30px] pl-[48px] effect_item">
     <div
       class="opacity-0 absolute right-0 bottom-0 w-[440px] translate-y-[30px]
-    group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:transition-transform group-[.active]:duration-[600ms]">
-      <img src="@/assets/img/common/footer/img_footer_fumino.png" alt="">
+    group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.6s_cubic-bezier(.01,_.53,_.37,_.99),_opacity_.4s_ease-in]">
+      <img :src="characterImg" alt="">
     </div>
 
     <ul>

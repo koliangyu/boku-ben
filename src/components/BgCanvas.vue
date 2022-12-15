@@ -1,7 +1,11 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue'
 
-const particleColor = ref('187')
+const props = defineProps({
+  color: String,
+})
+
+const particleColor = ref(props.color)
 let stage = null
 let particleSystem = null
 

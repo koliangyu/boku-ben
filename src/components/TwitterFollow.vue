@@ -1,4 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+
+const props = defineProps({
+  characterColor: String,
+})
+
+const color = ref(props.characterColor)
 </script>
 
 <template>
@@ -7,8 +14,9 @@
    transition-transform duration-[400ms] ease-[cubic-bezier(.445,_.05,_.55,_.95)]
    hover:translate-x-[30px] hover:translate-y-[0] hover:transition-transform hover:duration-[400ms] hover:ease-[cubic-bezier(.445,_.05,_.55,_.95)]">
     <div
-      class="pt-[23px] pr-[30px] pb-[25px] pl-[8px] bg-black border-2 border-solid border-black rounded-[7px] font-extrabold text-[20px] font-montserrat tracking-[.075em] [writing-mode:vertical-rl] text-[#9ce9f5]">
-      <div class="pl-[10px] fill-[#9ce9f5]">
+      class="pt-[23px] pr-[30px] pb-[25px] pl-[8px] bg-black border-2 border-solid border-black rounded-[7px] font-extrabold text-[20px] font-montserrat tracking-[.075em] [writing-mode:vertical-rl]"
+      :style="`color: ${color}`">
+      <div class="pl-[10px]" :style="`fill: ${color}`">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           width="20.9px" height="140.1px" viewBox="0 0 20.9 140.1" style="enable-background:new 0 0 20.9 140.1;"
           xml:space="preserve">
@@ -62,7 +70,7 @@
         </svg>
       </div>
       <div class="relative pt-[30px]">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[23px] fill-[#9ce9f5]">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[23px]" :style="`fill: ${color}`">
           <svg class="w-[23px] h-[23px]" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28.3px" height="22.7px"
             viewBox="0 0 28.3 22.7" style="enable-background:new 0 0 28.3 22.7;" xml:space="preserve">

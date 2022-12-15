@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import DecoItem from '../components/DecoItem.vue'
 
 const navigation = [
   { name: 'TOP', href: '/', target: null },
@@ -41,16 +42,7 @@ const navigation = [
         <img src="@/assets/img/top/txt_2nd_pc.png" alt="第2期　10月5日より放送開始！">
       </div>
 
-      <ul class="block">
-        <li class="absolute left-0 w-full h-[6px] top-0 bg-transparent
-        before:top-0 before:h-[3px] before:absolute before:left-0 before:w-full before:bg-black
-        after:bottom-0 after:h-[1px] after:absolute after:left-0 after:w-full after:bg-black">
-        </li>
-        <li class="absolute left-0 w-full h-[6px] bottom-[10px] bg-transparent
-        before:top-0 before:h-[1px] before:absolute before:left-0 before:w-full before:bg-black
-        after:bottom-0 after:h-[3px] after:absolute after:left-0 after:w-full after:bg-black">
-        </li>
-      </ul>
+      <DecoItem class="block"></DecoItem>
 
       <div>
         <ul class="w-[197px] mx-auto my-0">
