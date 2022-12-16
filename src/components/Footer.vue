@@ -26,6 +26,14 @@ const share = [
     imgUrl: '/src/assets/img/common/footer/icon_line.svg',
   },
 ]
+
+function toTop() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  })
+}
 </script>
 
 <template>
@@ -65,7 +73,7 @@ const share = [
       ©筒井大志／集英社・ぼくたちは勉強ができない製作委員会
     </p>
 
-    <div class="absolute right-[10px] bottom-[13px] w-[60px] h-[60px] bg-black rounded-full cursor-pointer scale-100 transition-transform duration-1000 origin-center
+    <div @click="toTop" class="absolute right-[10px] bottom-[13px] w-[60px] h-[60px] bg-black rounded-full cursor-pointer scale-100 transition-transform duration-1000 origin-center
      hover:scale-[.93] hover:transition-transform hover:duration-1000
      before:absolute before:top-0 before:left-0 before:w-full before:h-full
      before:bg-[url('/src/assets/img/common/footer/arrow_pagetop.svg')]
