@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import News from '../views/News.vue'
+import NewsIndex from '../views/News/Index.vue'
+import NewsDetail from '../views/News/Show.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +14,13 @@ const router = createRouter({
     {
       path: '/news',
       name: 'news',
-      component: News,
+      component: NewsIndex,
+    },
+    {
+      path: '/news/:id',
+      name: 'news.show',
+      component: NewsDetail,
+      props: true,
     },
   ]
 })

@@ -1,7 +1,8 @@
 <script setup>
-import ContentTitle from '../components/ContentTitle.vue'
-import DecoItem from '../components/DecoItem.vue'
-import AppLayout from '../layouts/AppLayout.vue'
+import { RouterLink } from 'vue-router'
+import ContentTitle from '../../components/ContentTitle.vue'
+import DecoItem from '../../components/DecoItem.vue'
+import AppLayout from '../../layouts/AppLayout.vue'
 
 const layoutProps = {
   character: {
@@ -26,7 +27,7 @@ const layoutProps = {
           <ul>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal cate-now
-            before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -37,7 +38,7 @@ const layoutProps = {
             </li>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -48,7 +49,7 @@ const layoutProps = {
             </li>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -59,7 +60,7 @@ const layoutProps = {
             </li>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -98,9 +99,9 @@ const layoutProps = {
                   src="SYS/CONTENTS/2020110917240271325542/w776" width="776"><br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=55576"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal">
@@ -124,9 +125,9 @@ const layoutProps = {
                   src="SYS/CONTENTS/2020102119004161603789/w776" width="776"><br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=55441"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal">
@@ -147,9 +148,9 @@ const layoutProps = {
                   href="https://boku-ben.com/bddvd/2nd/06.html">https://boku-ben.com/bddvd/2nd/06.html</a><br>&nbsp;<br>「ワンダー・ピュアマジック！」<br>作詞・作曲・編曲：西田圭稀<br>歌：桐須真冬（CV.Lynn）＆川瀬あゆ子（CV.大地葉）＆海原智波（CV.阿澄佳奈）<br><br>「星屑のプレリュード」<br>作詞・作曲・編曲：西田圭稀<br>歌：武元うるか（CV.鈴代紗弓）<br>&nbsp;<br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=54040"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal">
@@ -173,9 +174,9 @@ const layoutProps = {
                   src="SYS/CONTENTS/2020041716031923238522/w598" width="598"><br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=54019"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal">
@@ -199,9 +200,9 @@ const layoutProps = {
                 2020年6月24日(水)<br>&nbsp;<br>また、4月27日発売の週刊少年ジャンプ21.22合併号につきましては印刷日程の都合上、変更前の発売日にて情報が記載されております。<br><br>発売を楽しみにお待ちいただいているお客様に多大なご迷惑をおかけいたします事、深くお詫び申し上げます。<br>何卒ご理解賜りますようお願い申し上げます。<br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=54017"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal">
@@ -223,9 +224,9 @@ const layoutProps = {
                 Vol.5<br>ANZX/ANZB-14929～14930（旧発売予定日2020年4月29日(水)）<br>→発売日未定延期<br>&nbsp;<br>詳細な発売日が定まりましたら、改めて公式サイト、オフィシャルTwitterアカウントからご案内いたします。<br>楽しみにお待ちいただいているお客様に多大なご迷惑をおかけいたします事、深くお詫び申し上げます。<br>何卒ご理解賜りますようお願い申し上げます。<br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=54000"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal">
@@ -249,9 +250,9 @@ const layoutProps = {
                   href="https://eplus.jp/sf/refund1">https://eplus.jp/sf/refund1</a><br>（問）イープラスカスタマーセンター：0570-06-9919（受付時間10時～18時・土日祝含む）　<br>※お電話が混み合ってかかりにくい場合があります。<br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=53558"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal">
@@ -275,9 +276,9 @@ const layoutProps = {
                   target="">「新型コロナウイルス感染症についての相談・受診の目安」</a><br>&nbsp;<br>
               </div>
             </div>
-            <a class="block absolute top-0 left-0 w-full h-full
+            <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
              before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
-             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]" href="?id=53493"></a>
+             hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
         </ul>
       </div>
