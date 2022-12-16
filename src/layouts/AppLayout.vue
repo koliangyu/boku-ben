@@ -8,6 +8,7 @@ import { useScrollEffectModule } from '../composables/useScrollEffectModule.js'
 useScrollEffectModule()
 
 defineProps({
+  contentInnerClass: String,
   isTop: Boolean,
   character: {
     color: String,
@@ -30,7 +31,7 @@ defineProps({
       :style="`background-image: url(${character?.bgTop}), url(${character?.bgUnder})`">
       <div class="relative">
         <div class="relative z-[1] mx-auto my-0 min-h-[1000px]"
-          :class="isTop ? 'container pt-0 pb-[212px]' : 'w-[869px] pt-[71px] pb-[232px]'">
+          :class="contentInnerClass ?? 'w-[869px] pt-[71px] pb-[232px]'">
           <slot />
         </div>
       </div>

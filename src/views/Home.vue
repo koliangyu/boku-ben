@@ -7,7 +7,7 @@ import AppLayout from '../layouts/AppLayout.vue'
 const isActive = ref(false)
 
 const layoutProps = {
-  isTop: true,
+  contentInnerClass: 'container pt-0 pb-[212px]',
   character: {
     color: '#9ce9f5',
     bgTop: '/src/assets/img/common/bg/fumino/pc_bg_top.png',
