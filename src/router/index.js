@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import NewsIndex from '../views/News/Index.vue'
 import NewsDetail from '../views/News/Show.vue'
 import OnAir from '../views/OnAir.vue'
+import Story from '../views/Story.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/onair',
       name: 'onair',
       component: OnAir,
+    },
+    {
+      path: '/story',
+      name: 'story',
+      component: Story,
     },
   ]
 })
