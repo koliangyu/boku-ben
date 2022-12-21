@@ -1,0 +1,89 @@
+<script setup>
+import ContentTitle from '../../components/ContentTitle.vue'
+import DecoItem from '../../components/DecoItem.vue'
+import AppLayout from '../../layouts/AppLayout.vue'
+import ListItem from './Partials/ListItem.vue'
+
+const layoutProps = {
+  contentInnerClass: 'w-[869px] pt-[71px] pb-[300px]',
+  character: {
+    color: '#c0b2ed',
+    bgTop: '/src/assets/img/common/bg/asumi/pc_bg_top.png',
+    bgUnder: '/src/assets/img/common/bg/asumi/pc_bg_under.png',
+    footerImg: '/src/assets/img/common/footer/img_footer_asumi.png',
+    particleColor: '253',
+  },
+}
+
+const staffs = [
+  { isBig: true, position: '原作', name: '筒井大志', supplement: '(集英社「週刊少年ジャンプ」連載)' },
+  { isBig: false, position: '監督', name: '岩崎良明', supplement: null },
+  { isBig: false, position: 'シリーズ構成', name: '雑破業', supplement: null },
+  { isBig: false, position: 'キャラクターデザイン', name: '佐々木政勝', supplement: null },
+  { isBig: false, position: '美術監督', name: '松本浩樹', supplement: null },
+  { isBig: false, position: '美術デザイン', name: '山本浩憲・村田貴弘', supplement: null },
+  { isBig: false, position: '背景スタジオ', name: 'アトリエPlatz', supplement: null },
+  { isBig: false, position: '色彩設計', name: '松山愛子', supplement: null },
+  { isBig: false, position: '撮影監督', name: '今泉秀樹', supplement: null },
+  { isBig: false, position: '撮影スタジオ', name: '颱風グラフィックス', supplement: null },
+  { isBig: false, position: '編集', name: '梅津朋美', supplement: null },
+  { isBig: false, position: '編集スタジオ', name: 'エディッツ', supplement: null },
+  { isBig: false, position: '音響監督', name: '本山哲', supplement: null },
+  { isBig: false, position: '音響制作', name: 'マジックカプセル', supplement: null },
+  { isBig: false, position: '音楽', name: '中山真斗', supplement: null },
+  { isBig: true, position: 'アニメーションプロデュース', name: 'barnum　studio', supplement: null },
+  { isBig: true, position: 'アニメーション制作', name: 'stシルバー×アルボアニメーション', supplement: null },
+  { isBig: true, position: '製作', name: 'ぼくたちは勉強ができない製作委員会', supplement: null },
+]
+
+const casts = [
+  { isBig: false, position: '唯我 成幸', name: '逢坂良太', supplement: null },
+  { isBig: false, position: '古橋 文乃', name: '白石晴香', supplement: null },
+  { isBig: false, position: '緒方 理珠', name: '富田美憂', supplement: null },
+  { isBig: false, position: '武元 うるか', name: '鈴代紗弓', supplement: null },
+  { isBig: false, position: '桐須 真冬', name: 'Lynn', supplement: null },
+  { isBig: false, position: '小美浪 あすみ', name: '朝日奈丸佳', supplement: null },
+]
+</script>
+
+<template>
+  <AppLayout v-bind="layoutProps">
+    <ContentTitle class="effect_item">STAFF/CAST</ContentTitle>
+
+    <div
+      class="relative px-0 pt-[45px] pb-[30px] effect_item
+    opacity-0 translate-y-[25px]
+    [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]">
+      <DecoItem :color="layoutProps.character.color"></DecoItem>
+
+      <h3 class="pb-[35px] font-semibold text-[36px] font-montserrat tracking-[.075em]">STAFF</h3>
+
+      <ul class="py-0 pr-0 pl-[18px] text-[0] leading-[-.4em]">
+        <template v-for="staff in staffs">
+          <ListItem v-if="staff.name === '筒井大志'" :staff="staff">
+            <div class="absolute top-1/2 right-[-35px] w-[24px] h-[24px] mt-[-12px]
+            bg-[url('/src/assets/img/staff/icon_balloon.svg')] bg-center bg-no-repeat bg-contain cursor-pointer
+            scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center block
+            hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]" data-position="原作"
+              data-name="<p>筒</p><p>井</p><p>大</p><p>志</p>"
+              data-comment="最初聞いた時は、<br class='is-sp'></div>何かのドッキリの可能性も考えましたが、<br>本当のようで驚天動地でございます。本当に応援してくれた皆様のおかげ様です。<br>全力感謝です。<br>放送日には、ぼくと一緒に<br class='is-sp'>テレビにかじりつきましょうね！">
+            </div>
+          </ListItem>
+          <ListItem v-else :staff="staff"></ListItem>
+        </template>
+      </ul>
+    </div>
+
+    <div class="relative px-0 pt-[45px] pb-[30px]">
+      <DecoItem :color="layoutProps.character.color" :hidden-top="true"></DecoItem>
+
+      <h3 class="pb-[35px] font-semibold text-[36px] font-montserrat tracking-[.075em]">CAST</h3>
+
+      <ul class="py-0 pr-0 pl-[18px] text-[0] leading-[-.4em]">
+        <template v-for="staff in casts">
+          <ListItem :staff="staff"></ListItem>
+        </template>
+      </ul>
+    </div>
+  </AppLayout>
+</template>

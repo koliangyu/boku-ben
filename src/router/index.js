@@ -4,6 +4,7 @@ import NewsIndex from '../views/News/Index.vue'
 import NewsDetail from '../views/News/Show.vue'
 import OnAir from '../views/OnAir.vue'
 import Story from '../views/Story.vue'
+import StaffCast from '../views/StaffCast/Index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/story',
       name: 'story',
       component: Story,
+    },
+    {
+      path: '/staffcast',
+      name: 'staffcast',
+      component: StaffCast,
     },
   ]
 })
