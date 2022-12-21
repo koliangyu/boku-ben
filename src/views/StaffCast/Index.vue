@@ -1,8 +1,12 @@
 <script setup>
+import { ref } from 'vue'
 import ContentTitle from '../../components/ContentTitle.vue'
 import DecoItem from '../../components/DecoItem.vue'
+import CommentModal from '../../components/Modals/CommentModal.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
 import ListItem from './Partials/ListItem.vue'
+
+const showModal = ref(false)
 
 const layoutProps = {
   contentInnerClass: 'w-[869px] pt-[71px] pb-[300px]',
@@ -44,6 +48,20 @@ const casts = [
   { isBig: false, position: '桐須 真冬', name: 'Lynn', supplement: null },
   { isBig: false, position: '小美浪 あすみ', name: '朝日奈丸佳', supplement: null },
 ]
+
+const commentData = {
+  position: ref(''),
+  name: ref(''),
+  comment: ref(''),
+}
+
+function handlerShowModal(event) {
+  showModal.value = true
+
+  commentData.position.value = event.target.dataset.position
+  commentData.name.value = event.target.dataset.name
+  commentData.comment.value = event.target.dataset.comment
+}
 </script>
 
 <template>
@@ -65,8 +83,9 @@ const casts = [
             bg-[url('/src/assets/img/staff/icon_balloon.svg')] bg-center bg-no-repeat bg-contain cursor-pointer
             scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center block
             hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]" data-position="原作"
-              data-name="<p>筒</p><p>井</p><p>大</p><p>志</p>"
-              data-comment="最初聞いた時は、<br class='is-sp'></div>何かのドッキリの可能性も考えましたが、<br>本当のようで驚天動地でございます。本当に応援してくれた皆様のおかげ様です。<br>全力感謝です。<br>放送日には、ぼくと一緒に<br class='is-sp'>テレビにかじりつきましょうね！">
+              data-name="筒井大志"
+              data-comment="最初聞いた時は、何かのドッキリの可能性も考えましたが、<br>本当のようで驚天動地でございます。本当に応援してくれた皆様のおかげ様です。<br>全力感謝です。<br>放送日には、ぼくと一緒にテレビにかじりつきましょうね！"
+              @click="handlerShowModal">
             </div>
           </ListItem>
           <ListItem v-else :staff="staff"></ListItem>
@@ -86,4 +105,21 @@ const casts = [
       </ul>
     </div>
   </AppLayout>
+
+  <CommentModal :show="showModal" :color="layoutProps.character.color" @close="showModal = false">
+    <div class="relative px-[60px] pt-[28px] pb-[68px]
+    before:absolute before:top-1/2 before:left-[-18px] before:-translate-y-1/2 before:w-[36px] before:h-[95%]
+    before:bg-[url('/src/assets/img/chara/bg_note_repeat.svg')]
+    before:bg-top before:bg-repeat-y before:bg-contain">
+      <DecoItem :color="layoutProps.character.color"></DecoItem>
+
+      <h3 class="pb-[45px] font-extrabold text-[48px] font-montserrat">COMMENT</h3>
+      <p class="pb-[7px] text-[#f5588b] font-medium text-[18px]">{{ commentData.position.value }}</p>
+      <div class="mb-[15px] text-[0] tracking-[-.4em]">
+        <p v-for="str in [...commentData.name.value]" class="inline-block w-[60px] mb-0 px-0 py-[13px] bg-white [border:_3px_solid_#ececec] align-top font-bold text-[28px] tracking-normal text-center [border-right:_none]
+        last:[border-right:_3px_solid_#ececec]">{{ str }}</p>
+      </div>
+      <p class="font-medium text-[15px] leading-[28px]" v-html="commentData.comment.value"></p>
+    </div>
+  </CommentModal>
 </template>

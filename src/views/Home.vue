@@ -2,7 +2,10 @@
 import { onMounted, ref } from 'vue'
 import ContentTitle from '../components/ContentTitle.vue'
 import DecoItem from '../components/DecoItem.vue'
+import MovieModal from '../components/Modals/MovieModal.vue'
 import AppLayout from '../layouts/AppLayout.vue'
+
+const showModal = ref(false)
 
 const isActive = ref(false)
 
@@ -75,7 +78,8 @@ onMounted(() => {
         <div
           class="opacity-0 translate-y-[30px]
         group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s,_opacity_.6s_ease-in_.6s,_-webkit-transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s]">
-          <div class="group/movie w-[520px] mx-auto my-0 text-center" data-movie="d88R3PgX2Wo">
+          <div class="group/movie w-[520px] mx-auto my-0 text-center" data-movie="d88R3PgX2Wo"
+            @click="showModal = true">
             <div
               class="relative w-full mx-auto my-0 pt-[56.25%] cursor-pointer
              before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:bg-[#9ce9f5]
@@ -200,4 +204,11 @@ onMounted(() => {
       </div>
     </div>
   </AppLayout>
+
+  <MovieModal :show="showModal" :color="layoutProps.character.color" @close="showModal = false">
+    <div class="relative w-full pt-[56.25%]">
+      <iframe width="900" height="506" src="https://www.youtube-nocookie.com/embed/d88R3PgX2Wo" frameborder="0"
+        class="absolute top-0 left-0 w-full h-full"></iframe>
+    </div>
+  </MovieModal>
 </template>

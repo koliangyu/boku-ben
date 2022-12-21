@@ -21,7 +21,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="font-wrapper">
+  <div id="l-wrapper" class="font-wrapper">
     <BgCanvas :color="character?.particleColor" />
 
     <Header />
