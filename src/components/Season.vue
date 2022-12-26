@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 defineProps({
+  color: String,
   seasons:
   {
     name: String,
@@ -20,9 +21,9 @@ defineProps({
           hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]"
       :class="{ 'is-current': season.href === route.path }">
       <div class="relative overflow-hidden border-[3px] border-solid border-black rounded-[8px]">
-        <p class="text-[#f4afc4] px-0 py-[12px] is-active
+        <p class="px-0 py-[12px] is-active
             [&.is-active]:opacity-0 [&.is-active]:absolute [&.is-active]:top-0 [&.is-active]:left-0 [&.is-active]:w-full [&.is-active]:bg-black
-            group-[.is-current]:[&.is-active]:opacity-100">
+            group-[.is-current]:[&.is-active]:opacity-100" :style="`color: ${color}`">
           {{ season.name }}
         </p>
         <p class="text-white px-0 py-[12px]">{{ season.name }}</p>

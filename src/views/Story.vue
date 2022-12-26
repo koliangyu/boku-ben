@@ -10,6 +10,17 @@ import 'swiper/css'
 
 const modules = [Autoplay, Navigation]
 
+const swiperOptions = {
+  navigation: {
+    nextEl: '.swiper-button-next-custom',
+    prevEl: '.swiper-button-prev-custom',
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+}
+
 const layoutProps = {
   contentInnerClass: 'w-[895px] pt-[71px] pb-[316px]',
   character: {
@@ -51,7 +62,7 @@ const categories = [
     <div
       class="opacity-0 translate-y-[25px] effect_item
      [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]">
-      <Season :seasons="seasons"></Season>
+      <Season :color="layoutProps.character.color" :seasons="seasons"></Season>
 
       <div class="relative w-full mx-auto mt-0 mb-[40px] pl-[10px] text-center effect_item">
         <ul>
@@ -95,21 +106,19 @@ const categories = [
               </div>
 
               <div class="relative w-[730px]">
-                <swiper :modules="modules"
-                  :navigation="{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', }" :loop="true"
-                  :autoplay="{ delay: 3000, disableOnInteraction: false, }" :slides-per-view="1" :space-between="0"
-                  class="w-[730px] mx-0">
+                <swiper :modules="modules" :navigation="swiperOptions.navigation" :loop="true"
+                  :autoplay="swiperOptions.autoplay" :slides-per-view="1" :space-between="0" class="w-[730px] mx-0">
                   <swiper-slide><img src="@/assets/img/story/2nd/13/01.jpg"></swiper-slide>
                   <swiper-slide><img src="@/assets/img/story/2nd/13/02.jpg"></swiper-slide>
                   <swiper-slide><img src="@/assets/img/story/2nd/13/03.jpg"></swiper-slide>
                 </swiper>
 
-                <div class="swiper-button-prev absolute top-1/2 left-[-25px] translate-x-0 -translate-y-1/2 w-[42px] h-[42px]
+                <div class="swiper-button-prev-custom absolute top-1/2 left-[-25px] translate-x-0 -translate-y-1/2 w-[42px] h-[42px]
                 bg-[url(/src/assets/img/common/arrow_left.svg)] bg-center bg-no-repeat bg-[15px_auto] rounded-full shadow-[_3px_3px_#000]
                 cursor-pointer [transition:_all_.6s_cubic-bezier(.23,_1,_.32,_1)] z-10 bg-[#f4afc4]
                 hover:translate-x-[-8px] hover:-translate-y-1/2">
                 </div>
-                <div class="swiper-button-next absolute top-1/2 right-[-25px] translate-x-0 -translate-y-1/2 w-[42px] h-[42px]
+                <div class="swiper-button-next-custom absolute top-1/2 right-[-25px] translate-x-0 -translate-y-1/2 w-[42px] h-[42px]
                 bg-[url(/src/assets/img/common/arrow_right.svg)] bg-center bg-no-repeat bg-[15px_auto] rounded-full shadow-[_3px_3px_#000]
                 cursor-pointer [transition:_all_.6s_cubic-bezier(.23,_1,_.32,_1)] z-10 bg-[#f4afc4]
                 hover:translate-x-[8px] hover:-translate-y-1/2">
