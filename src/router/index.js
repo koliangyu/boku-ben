@@ -6,6 +6,7 @@ import OnAir from '../views/OnAir.vue'
 import Story from '../views/Story.vue'
 import StaffCast from '../views/StaffCast/Index.vue'
 import Character from '../views/Character/Index.vue'
+import Music from '../views/Music/Index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
       path: '/character',
       name: 'character',
       component: Character,
+    },
+    {
+      path: '/music',
+      name: 'music',
+      component: Music,
     },
   ]
 })
