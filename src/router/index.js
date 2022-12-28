@@ -8,6 +8,7 @@ import StaffCast from '../views/StaffCast/Index.vue'
 import Character from '../views/Character/Index.vue'
 import Music from '../views/Music/Index.vue'
 import Movie from '../views/Movie/Index.vue'
+import Special from '../views/Special/Index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +58,11 @@ const router = createRouter({
       path: '/movie',
       name: 'movie',
       component: Movie,
+    },
+    {
+      path: '/special',
+      name: 'special',
+      component: Special,
     },
   ]
 })
