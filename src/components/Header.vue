@@ -66,8 +66,8 @@ const navigation = [
 
         <div class="mt-[13px] block">
           <a href="/event">
-            <img src="@/assets/img/top/bnr/bnr_event.jpg" alt="「ぼくたちは勉強ができない」スペシャルイベント開催！" class="block scale-100 origin-center transition-transform duration-1000
-             hover:scale-[.93] hover:transition-transform hover:duration-1000">
+            <img src="@/assets/img/top/bnr/bnr_event.jpg" alt="「ぼくたちは勉強ができない」スペシャルイベント開催！" class="block scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
+             hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]">
           </a>
         </div>
       </div>
