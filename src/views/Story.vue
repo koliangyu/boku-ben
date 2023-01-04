@@ -22,7 +22,7 @@ const swiperOptions = {
 }
 
 const layoutProps = {
-  contentInnerClass: 'w-[895px] pt-[71px] pb-[316px]',
+  contentInnerClass: 'w-[895px] pb-[316px]',
   character: {
     color: '#f4afc4',
     bgTop: '/src/assets/img/common/bg/mafuyu/pc_bg_top.png',

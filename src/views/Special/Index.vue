@@ -3,7 +3,7 @@ import ContentTitle from '../../components/ContentTitle.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
 
 const layoutProps = {
-  contentInnerClass: 'w-[869px] pt-[71px] pb-[270px]',
+  contentInnerClass: 'pb-[270px]',
   character: {
     color: '#f4afc4',
     bgTop: '/src/assets/img/common/bg/mafuyu/pc_bg_top.png',

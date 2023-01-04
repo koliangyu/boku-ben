@@ -27,7 +27,7 @@ const swiperOptions = {
 }
 
 const layoutProps = {
-  contentInnerClass: 'w-[869px] pt-[71px] pb-[272px]',
+  contentInnerClass: 'pb-[272px]',
   character: {
     color: '#fbba78',
     bgTop: '/src/assets/img/common/bg/rizu/pc_bg_top.png',

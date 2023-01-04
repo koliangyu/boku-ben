@@ -35,7 +35,7 @@ const swiperOptions = {
 }
 
 const layoutProps = {
-  contentInnerClass: 'w-[890px] pt-[71px] pb-[365px]',
+  contentInnerClass: 'w-[890px] pb-[365px]',
   character: {
     color: '#9ce9f5',
     bgTop: '/src/assets/img/common/bg/fumino/pc_bg_top.png',

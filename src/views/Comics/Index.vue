@@ -3,7 +3,7 @@ import ContentTitle from '../../components/ContentTitle.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
 
 const layoutProps = {
-  contentInnerClass: 'w-[869px] pt-[71px] pb-[322px]',
+  contentInnerClass: 'pb-[322px]',
   character: {
     color: '#c0b2ed',
     bgTop: '/src/assets/img/common/bg/asumi/pc_bg_top.png',

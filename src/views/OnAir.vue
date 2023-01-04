@@ -1,11 +1,9 @@
 <script setup>
-import { RouterLink } from 'vue-router'
 import ContentTitle from '../components/ContentTitle.vue'
-import DecoItem from '../components/DecoItem.vue'
 import AppLayout from '../layouts/AppLayout.vue'
 
 const layoutProps = {
-  contentInnerClass: 'w-[869px] pt-[71px] pb-[322px]',
+  contentInnerClass: 'pb-[322px]',
   character: {
     color: '#fb9c95',
     bgTop: '/src/assets/img/common/bg/uruka/pc_bg_top.png',

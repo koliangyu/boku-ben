@@ -21,7 +21,7 @@ defineProps({
 </script>
 
 <template>
-  <div id="l-wrapper" class="font-wrapper">
+  <div id="l-wrapper" class="w-full table font-wrapper">
     <BgCanvas :color="character?.particleColor" />
 
     <Header />
@@ -30,8 +30,8 @@ defineProps({
       class="table-cell align-top bg-[position:top_-300px_left_0,_right_bottom] bg-[length:940px_auto,_594px_auto] bg-no-repeat"
       :style="`background-image: url(${character?.bgTop}), url(${character?.bgUnder})`">
       <div class="relative">
-        <div class="relative z-[1] mx-auto my-0 min-h-[1000px]"
-          :class="contentInnerClass ?? 'w-[869px] pt-[71px] pb-[232px]'">
+        <div :class="contentInnerClass"
+          class="relative z-[1] w-[869px] mx-auto my-0 pt-[71px] pb-[232px] min-h-[1000px]">
           <slot />
         </div>
       </div>

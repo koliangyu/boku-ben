@@ -9,7 +9,7 @@ import ListItem from './Partials/ListItem.vue'
 const showModal = ref(false)
 
 const layoutProps = {
-  contentInnerClass: 'w-[869px] pt-[71px] pb-[300px]',
+  contentInnerClass: 'pb-[300px]',
   character: {
     color: '#c0b2ed',
     bgTop: '/src/assets/img/common/bg/asumi/pc_bg_top.png',

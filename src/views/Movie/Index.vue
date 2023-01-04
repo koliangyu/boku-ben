@@ -9,7 +9,7 @@ const showModal = ref(false)
 const selectedVideoId = ref(null)
 
 const layoutProps = {
-  contentInnerClass: 'w-[869px] pt-[71px] pb-[272px]',
+  contentInnerClass: 'pb-[272px]',
   character: {
     color: '#fb9c95',
     bgTop: '/src/assets/img/common/bg/uruka/pc_bg_top.png',
