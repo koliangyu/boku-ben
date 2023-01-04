@@ -11,6 +11,7 @@ import Movie from '../views/Movie/Index.vue'
 import Special from '../views/Special/Index.vue'
 import Comics from '../views/Comics/Index.vue'
 import Goods from '../views/Goods/Index.vue'
+import BdDvd from '../views/BdDvd/Index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -75,6 +76,11 @@ const router = createRouter({
       path: '/goods',
       name: 'goods',
       component: Goods,
+    },
+    {
+      path: '/bddvd',
+      name: 'bddvd',
+      component: BdDvd,
     },
   ]
 })

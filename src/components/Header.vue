@@ -9,9 +9,9 @@ const navigation = [
   { name: 'STORY', href: '/story', target: null },
   { name: 'STAFF/CAST', href: '/staffcast', target: null },
   { name: 'CHARACTER', href: '/character', target: null },
-  { name: '"Study"', href: '/study', target: '_blank' },
+  { name: '"Study"', href: 'https://boku-ben.com/study/', target: '_blank' },
   { name: 'MUSIC', href: '/music', target: null },
-  { name: 'EVENT', href: '/event', target: null },
+  { name: 'EVENT', href: 'https://boku-ben.com/event/', target: '_blank' },
   { name: 'MOVIE', href: '/movie', target: null },
   { name: 'SPECIAL', href: '/special', target: null },
   { name: 'COMICS', href: '/comics', target: null },
@@ -47,7 +47,7 @@ const navigation = [
       <div>
         <ul class="w-[197px] mx-auto my-0">
           <li v-for="item in navigation" class="mx-0 my-[2.5px]">
-            <RouterLink :to="item.href" :target="item.target" class="group inline-block relative h-full py-[8px] pr-0 pl-[20px] text-black font-extrabold text-[22px] font-montserrat tracking-[.075em] no-underline
+            <RouterLink v-if="item.target === null" :to="item.href" class="group inline-block relative h-full py-[8px] pr-0 pl-[20px] text-black font-extrabold text-[22px] font-montserrat tracking-[.075em] no-underline
                before:transition-all before:ease-out before:duration-300
                before:opacity-0 before:absolute before:top-0 before:left-[2px] before:translate-x-[10px] before:w-[16px] before:h-full
                before:bg-[url('/src/assets/img/common/menu/pc/img_pencil.png')]
@@ -61,6 +61,20 @@ const navigation = [
                group-hover:before:w-0 group-hover:before:transition-[width] group-hover:before:duration-[300ms]
                group-[&.router-link-active]:before:w-0"></span>
             </RouterLink>
+            <a v-else :href="item.href" :target="item.target" class="group inline-block relative h-full py-[8px] pr-0 pl-[20px] text-black font-extrabold text-[22px] font-montserrat tracking-[.075em] no-underline
+               before:transition-all before:ease-out before:duration-300
+               before:opacity-0 before:absolute before:top-0 before:left-[2px] before:translate-x-[10px] before:w-[16px] before:h-full
+               before:bg-[url('/src/assets/img/common/menu/pc/img_pencil.png')]
+               before:bg-left before:bg-no-repeat before:bg-contain
+               hover:before:opacity-100 hover:before:translate-x-0
+               hover:before:transition-all hover:before:ease-out hover:before:duration-300
+               [&.router-link-active]:before:opacity-100 [&.router-link-active]:before:translate-x-0">
+              {{ item.name }}
+              <span class="block absolute right-0 bottom-[2px] w-full h-[6px] bg-white border-2 border-solid border-black
+               before:bg-white before:transition-[width] before:duration-[300ms] before:absolute before:-top-[2px] before:-left-[3px] before:w-[calc(100%_+_6px)] before:h-[calc(100%_+_4px)]
+               group-hover:before:w-0 group-hover:before:transition-[width] group-hover:before:duration-[300ms]
+               group-[&.router-link-active]:before:w-0"></span>
+            </a>
           </li>
         </ul>
 
