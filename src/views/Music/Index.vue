@@ -1,17 +1,18 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import ContentTitle from '../../components/ContentTitle.vue'
 import Season from '../../components/Season.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.RIZU)
 
 const layoutProps = {
   contentInnerClass: 'w-[895px] pb-[316px]',
-  character: {
-    color: '#fbba78',
-    bgTop: '/src/assets/img/common/bg/rizu/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/rizu/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_rizu.png',
-    particleColor: '29',
-  },
 }
 
 const seasons = [
@@ -21,31 +22,31 @@ const seasons = [
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <ContentTitle class="effect_item">MUSIC</ContentTitle>
 
     <div
       class="effect_item
       opacity-0 translate-y-[25px]
       [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]">
-      <Season :color="layoutProps.character.color" :seasons="seasons"></Season>
+      <Season :color="`var(${color})`" :seasons="seasons"></Season>
 
       <div class="text-center">
         <h3 class="text-[50px] font-normal">「<span class="font-montserrat font-bold">Can now, Can now</span>」</h3>
         <h4
           class="font-montserrat font-bold inline-block relative mx-auto mt-[20px] mb-[32px] text-[34px]
-          after:box-content after:absolute after:left-0 after:bottom-[-10px] after:w-full after:h-[2px] after:border-2 after:border-solid after:border-black after:bg-[#fbba78]">
+          after:box-content after:absolute after:left-0 after:bottom-[-10px] after:w-full after:h-[2px] after:border-2 after:border-solid after:border-black after:bg-[var(--my-color-var)]">
           Study</h4>
         <div><img src="@/assets/img/music/img_date.png" class="h-[40px] w-auto m-auto text-center"
             alt="2019年10月30日（水）発売"></div>
 
         <div
           class="group relative w-[700px] mx-auto mt-[40px] mb-[72px] z-[2]
-          before:block before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:z-[-1] before:bg-[#fbba78]
+          before:block before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:z-[-1] before:bg-[var(--my-color-var)]
           before:translate-x-0 before:translate-y-0 before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
           hover:before:translate-x-[10px] hover:before:translate-y-[10px] hover:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]">
           <a href="../news/?id=51784" target="_blank"
-            class="relative block overflow-hidden before:bg-[#fbba78]
+            class="relative block overflow-hidden before:bg-[var(--my-color-var)]
             before:opacity-30 before:absolute before:top-1/2 before:left-1/2 before:w-[300%] before:h-[300%]
             before:translate-x-[10%] before:translate-y-[-50%] before:rotate-[-45deg] before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
             group-hover:before:translate-x-[-50%] group-hover:before:translate-y-[-50%] group-hover:before:rotate-[-45deg] group-hover:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]">
@@ -57,14 +58,14 @@ const seasons = [
 
       <div
         class="relative w-[846px] mx-auto mt-[40px] mb-[72px] z-[2]
-        before:block before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:z-[-1] before:bg-[#fbba78]
-        after:box-content after:absolute after:top-[19px] after:left-[5px] after:w-[836px] after:h-[3px] after:border-t-4 after:border-b-2 after:border-solid after:border-black after:bg-[#fbba78]">
+        before:block before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:z-[-1] before:bg-[var(--my-color-var)]
+        after:box-content after:absolute after:top-[19px] after:left-[5px] after:w-[836px] after:h-[3px] after:border-t-4 after:border-b-2 after:border-solid after:border-black after:bg-[var(--my-color-var)]">
         <div
           class="relative pt-[70px] pr-[43px] pb-[77px] pl-[63px] bg-white border-[5px] border-solid border-black
           before:absolute before:top-1/2 before:left-[-18px] before:-translate-y-1/2 before:w-[36px] before:h-[94%] before:z-10
           before:bg-[url('/src/assets/img/chara/bg_note_repeat.svg')]
           before:bg-left-top before:bg-repeat-y before:bg-contain
-          after:box-content after:absolute after:bottom-[19px] after:left-0 after:w-full after:h-[3px] after:border-t-2 after:border-b-4 after:border-solid after:border-black after:bg-[#fbba78]">
+          after:box-content after:absolute after:bottom-[19px] after:left-0 after:w-full after:h-[3px] after:border-t-2 after:border-b-4 after:border-solid after:border-black after:bg-[var(--my-color-var)]">
           <div>
             <figure class="w-[670px] m-auto"><img src="@/assets/img/music/img_study_1909.jpg"></figure>
             <div>

@@ -1,15 +1,23 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import { EffectFade, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref } from 'vue'
 import ContentTitle from '../../components/ContentTitle.vue'
 import Season from '../../components/Season.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
 import SlideInner from './Partials/SlideInner.vue'
 
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.FUMINO)
 
 const currentActive = ref(0)
 
@@ -36,13 +44,6 @@ const swiperOptions = {
 
 const layoutProps = {
   contentInnerClass: 'w-[890px] pb-[365px]',
-  character: {
-    color: '#9ce9f5',
-    bgTop: '/src/assets/img/common/bg/fumino/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/fumino/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_fumino.png',
-    particleColor: '187',
-  },
 }
 
 const seasons = [
@@ -172,25 +173,25 @@ function scrollToSwiper() {
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <ContentTitle class="mb-[30px] effect_item">CHARACTER</ContentTitle>
 
     <div
       class="relative effect_item
       opacity-0 translate-y-[25px]
       [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]">
-      <Season :color="layoutProps.character.color" :seasons="seasons" class="mb-0"></Season>
+      <Season :color="`var(${color})`" :seasons="seasons" class="mb-0"></Season>
 
       <swiper id="swiper" :modules="modules" :navigation="swiperOptions.navigation"
         :pagination="swiperOptions.pagination" :slides-per-view="1" :space-between="0" :autoHeight="true"
         :effect="'fade'" :fadeEffect="swiperOptions.fadeEffect" :speed="500" class="w-full">
         <swiper-slide v-for="character in characters">
-          <SlideInner :character="character"></SlideInner>
+          <SlideInner :character="character" :color="color"></SlideInner>
         </swiper-slide>
 
         <div class="top-[20px] left-auto right-[55px] w-[40px] h-[40px] mt-0 bg-none
         before:absolute before:w-full before:h-full before:rounded-full before:top-[2px] before:left-[2px] before:bg-black
-        after:absolute after:w-full after:h-full after:rounded-full after:top-0 after:left-0 after:bg-[#9ce9f5]
+        after:absolute after:w-full after:h-full after:rounded-full after:top-0 after:left-0 after:bg-[var(--my-color-var)]
         scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
         hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
         swiper-button-prev">
@@ -199,7 +200,7 @@ function scrollToSwiper() {
         </div>
         <div class="top-[20px] right-[2px] w-[40px] h-[40px] mt-0 bg-none
         before:absolute before:w-full before:h-full before:rounded-full before:top-[2px] before:left-[2px] before:bg-black
-        after:absolute after:w-full after:h-full after:rounded-full after:top-0 after:left-0 after:bg-[#9ce9f5]
+        after:absolute after:w-full after:h-full after:rounded-full after:top-0 after:left-0 after:bg-[var(--my-color-var)]
         scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
         hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
         swiper-button-next">
@@ -225,7 +226,7 @@ function scrollToSwiper() {
                 :alt="character.thumb.name">
             </p>
             <p class="inline-block relative pt-[20px] align-top font-medium tracking-normal
-              before:box-content before:opacity-0 before:absolute before:bottom-[-10px] before:left-0 before:w-full before:h-[2px] before:border-2 before:border-solid before:border-black before:[transition:_opacity_.4s_ease-out] before:bg-[#9ce9f5]
+              before:box-content before:opacity-0 before:absolute before:bottom-[-10px] before:left-0 before:w-full before:h-[2px] before:border-2 before:border-solid before:border-black before:[transition:_opacity_.4s_ease-out] before:bg-[var(--my-color-var)]
               group-[.active]:before:opacity-100 group-[.active]:before:[transition:_opacity_.4s_ease-out]">
               {{ character.thumb.name }}
             </p>

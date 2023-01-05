@@ -1,7 +1,9 @@
 <script setup>
-defineProps({
-  characterImg: String,
-})
+import { storeToRefs } from 'pinia'
+import { useThemeStore } from '../stores/theme'
+
+const store = useThemeStore()
+const { footerImg } = storeToRefs(store)
 
 const official = [
   { name: 'PRIVACY POLICY', href: 'https://www.aniplex.co.jp/help/privacy.html' },
@@ -41,7 +43,7 @@ function toTop() {
     <div
       class="opacity-0 absolute right-0 bottom-0 w-[440px] translate-y-[30px]
     group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.6s_cubic-bezier(.01,_.53,_.37,_.99),_opacity_.4s_ease-in]">
-      <img :src="characterImg" alt="">
+      <img :src="footerImg" alt="">
     </div>
 
     <ul>

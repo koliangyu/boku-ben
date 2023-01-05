@@ -1,9 +1,17 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import { onMounted, ref } from 'vue'
 import ContentTitle from '../components/ContentTitle.vue'
 import DecoItem from '../components/DecoItem.vue'
 import MovieModal from '../components/Modals/MovieModal.vue'
 import AppLayout from '../layouts/AppLayout.vue'
+import { useThemeStore } from '../stores/theme'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.FUMINO)
 
 const showModal = ref(false)
 
@@ -11,13 +19,6 @@ const isActive = ref(false)
 
 const layoutProps = {
   contentInnerClass: 'w-[100%] pt-[0] pb-[212px]',
-  character: {
-    color: '#9ce9f5',
-    bgTop: '/src/assets/img/common/bg/fumino/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/fumino/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_fumino.png',
-    particleColor: '187',
-  },
 }
 
 const news = [
@@ -49,7 +50,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <div class="relative p-0 text-center effect_item">
       <div class="relative w-full text-center">
         <img src="@/assets/img/top/img_main.jpg" class="w-full" alt="">
@@ -82,13 +83,13 @@ onMounted(() => {
             @click="showModal = true">
             <div
               class="relative w-full mx-auto my-0 pt-[56.25%] cursor-pointer
-             before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:bg-[#9ce9f5]
+             before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:bg-[var(--my-color-var)]
              before:translate-x-0 before:translate-y-0 before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
              group-hover/movie:before:translate-x-[10px] group-hover/movie:before:translate-y-[10px] group-hover/movie:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
              after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-4 after:border-solid after:border-black after:box-border">
               <div class="absolute top-0 left-0 w-full h-full">
                 <div
-                  class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat origin-center overflow-hidden before:bg-[#9ce9f5]
+                  class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat origin-center overflow-hidden before:bg-[var(--my-color-var)]
                  before:opacity-30 before:absolute before:top-1/2 before:left-1/2 before:w-[250%] before:h-[250%]
                  before:translate-x-[20%] before:translate-y-[-50%] before:rotate-[-45deg] before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
                  group-hover/movie:before:translate-x-[-50%] group-hover/movie:before:translate-y-[-50%] group-hover/movie:before:rotate-[-45deg] group-hover/movie:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
@@ -100,17 +101,18 @@ onMounted(() => {
             </div>
             <div
               class="relative mt-[33px] font-semibold text-[16px] leading-[1.3em] tracking-[.075em] text-center inline-block
-             before:opacity-70 before:absolute before:bottom-[-5px] before:left-0 before:w-0 before:h-[10px] before:bg-[#9ce9f5]
+             before:opacity-70 before:absolute before:bottom-[-5px] before:left-0 before:w-0 before:h-[10px] before:bg-[var(--my-color-var)]
              before:[transition:_width_.4s_cubic-bezier(.215,_.61,_.355,_1)]
              group-hover/movie:before:w-full group-hover/movie:before:[transition:_width_.4s_cubic-bezier(.215,_.61,_.355,_1)]">
               <p class="relative z-[1] overflow-hidden whitespace-nowrap text-ellipsis">TVアニメ「ぼくたちは勉強ができない！」PV</p>
             </div>
           </div>
-          <div class="relative w-[283px] h-[40px] mt-[26px] mb-0 mx-auto text-center block
+          <div
+            class="relative w-[283px] h-[40px] mt-[26px] mb-0 mx-auto text-center block
           scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
           hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
           before:absolute before:top-[4px] before:left-[4px] before:w-full before:h-full before:bg-black before:rounded-[10px]
-          after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[#9ce8f5] after:rounded-[10px]">
+          after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[var(--my-color-var)] after:rounded-[10px]">
             <p
               class="relative top-1/2 left-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 w-full font-semibold text-[17px] font-montserrat tracking-wider
            before:absolute before:top-0 before:right-0 before:w-[25px] before:h-full
@@ -133,7 +135,7 @@ onMounted(() => {
         group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s,_opacity_.6s_ease-in_.6s,_-webkit-transform_.8s_cubic-bezier(.01,_.53,_.37,_.99)_.6s]">
           <div class="w-[433px] mr-[30px] inline-block align-top text-[16px] tracking-normal">
             <div class="relative px-0 py-[6px]">
-              <DecoItem :color="layoutProps.character.color"></DecoItem>
+              <DecoItem :color="`var(${color})`"></DecoItem>
 
               <ul class="divide-y-2 divide-black divide-solid">
                 <li v-for="item in news" class="relative pt-[25px] pb-[27.5px] px-0">
@@ -143,18 +145,19 @@ onMounted(() => {
                     {{ item.title }}
                   </div>
                   <a :href="item.href" class="block absolute top-0 left-0 w-full h-full
-                   before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[#9ce9f5]
+                   before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[var(--my-color-var)]
                    before:[transition:_opacity_.3s_ease-out]
                    hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></a>
                 </li>
               </ul>
             </div>
 
-            <div class="relative w-[283px] h-[40px] mt-[32px] mb-0 mx-auto text-center block
+            <div
+              class="relative w-[283px] h-[40px] mt-[32px] mb-0 mx-auto text-center block
           scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
           hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
           before:absolute before:top-[4px] before:left-[4px] before:w-full before:h-full before:bg-black before:rounded-[10px]
-          after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[#9ce8f5] after:rounded-[10px]">
+          after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[var(--my-color-var)] after:rounded-[10px]">
               <p
                 class="relative top-1/2 left-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 w-full font-semibold text-[17px] font-montserrat tracking-wider
            before:absolute before:top-0 before:right-0 before:w-[25px] before:h-full
@@ -168,7 +171,7 @@ onMounted(() => {
           <div
             class="inline-block relative w-[calc(100%_-_463px)] mt-[148px] pt-[20px] pb-[24px] px-[20px] bg-black rounded-[5px] align-top text-[16px] tracking-normal">
             <p
-              class="twitter_name absolute top-[-30px] left-0 pt-[15px] pb-[10px] px-[20px] bg-black rounded-[5px_5px_0_0] font-bold text-[15px] font-montserrat tracking-[.15em] text-[#9ce9f5]">
+              class="twitter_name absolute top-[-30px] left-0 pt-[15px] pb-[10px] px-[20px] bg-black rounded-[5px_5px_0_0] font-bold text-[15px] font-montserrat tracking-[.15em] text-[var(--my-color-var)]">
               @bokuben_anime</p>
             <div class="twitter_timeline">
               <div class="twitter-timeline twitter-timeline-rendered"
@@ -205,7 +208,7 @@ onMounted(() => {
     </div>
   </AppLayout>
 
-  <MovieModal :show="showModal" :color="layoutProps.character.color" @close="showModal = false">
+  <MovieModal :show="showModal" :color="`var(${color})`" @close="showModal = false">
     <div class="relative w-full pt-[56.25%]">
       <iframe width="900" height="506" src="https://www.youtube-nocookie.com/embed/d88R3PgX2Wo" frameborder="0"
         class="absolute top-0 left-0 w-full h-full"></iframe>

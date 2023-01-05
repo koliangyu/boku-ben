@@ -1,22 +1,23 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import ContentTitle from '../../components/ContentTitle.vue'
 import DecoItem from '../../components/DecoItem.vue'
 import CommentModal from '../../components/Modals/CommentModal.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
 import ListItem from './Partials/ListItem.vue'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.ASUMI)
 
 const showModal = ref(false)
 
 const layoutProps = {
   contentInnerClass: 'pb-[300px]',
-  character: {
-    color: '#c0b2ed',
-    bgTop: '/src/assets/img/common/bg/asumi/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/asumi/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_asumi.png',
-    particleColor: '253',
-  },
 }
 
 const staffs = [
@@ -72,7 +73,7 @@ function handlerShowModal(event) {
       class="relative px-0 pt-[45px] pb-[30px] effect_item
     opacity-0 translate-y-[25px]
     [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]">
-      <DecoItem :color="layoutProps.character.color"></DecoItem>
+      <DecoItem :color="`var(${color})`"></DecoItem>
 
       <h3 class="pb-[35px] font-semibold text-[36px] font-montserrat tracking-[.075em]">STAFF</h3>
 
@@ -94,7 +95,7 @@ function handlerShowModal(event) {
     </div>
 
     <div class="relative px-0 pt-[45px] pb-[30px]">
-      <DecoItem :color="layoutProps.character.color" :hidden-top="true"></DecoItem>
+      <DecoItem :color="`var(${color})`" :hidden-top="true"></DecoItem>
 
       <h3 class="pb-[35px] font-semibold text-[36px] font-montserrat tracking-[.075em]">CAST</h3>
 
@@ -106,12 +107,12 @@ function handlerShowModal(event) {
     </div>
   </AppLayout>
 
-  <CommentModal :show="showModal" :color="layoutProps.character.color" @close="showModal = false">
+  <CommentModal :show="showModal" :color="`var(${color})`" @close="showModal = false">
     <div class="relative px-[60px] pt-[28px] pb-[68px]
     before:absolute before:top-1/2 before:left-[-18px] before:-translate-y-1/2 before:w-[36px] before:h-[95%]
     before:bg-[url('/src/assets/img/chara/bg_note_repeat.svg')]
     before:bg-top before:bg-repeat-y before:bg-contain">
-      <DecoItem :color="layoutProps.character.color"></DecoItem>
+      <DecoItem :color="`var(${color})`"></DecoItem>
 
       <h3 class="pb-[45px] font-extrabold text-[48px] font-montserrat">COMMENT</h3>
       <p class="pb-[7px] text-[#f5588b] font-medium text-[18px]">{{ commentData.position.value }}</p>

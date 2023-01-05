@@ -3,3 +3,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --color-fumino: #9ce9f5;
+        --color-rizu: #fbba78;
+        --color-uruka: #fb9c95;
+        --color-mafuyu: #f4afc4;
+        --color-asumi: #c0b2ed;
+    }
+}

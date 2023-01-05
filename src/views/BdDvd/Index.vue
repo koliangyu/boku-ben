@@ -1,17 +1,25 @@
 <script setup>
 import PLAYER_MODULE_BRIGHTCOVE from 'js-player-module-brightcove'
+import { storeToRefs } from 'pinia'
 import { Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { onMounted } from 'vue'
 import ContentTitle from '../../components/ContentTitle.vue'
 import Season from '../../components/Season.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
 import H4 from './Partials/H4.vue'
 import Hr from './Partials/Hr.vue'
 import Item from './Partials/Item.vue'
 import Li from './Partials/Li.vue'
 
 import 'swiper/css'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.RIZU)
 
 const modules = [Pagination]
 
@@ -28,13 +36,6 @@ const swiperOptions = {
 
 const layoutProps = {
   contentInnerClass: 'pb-[272px]',
-  character: {
-    color: '#fbba78',
-    bgTop: '/src/assets/img/common/bg/rizu/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/rizu/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_rizu.png',
-    particleColor: '29',
-  },
 }
 
 const seasons = [
@@ -64,19 +65,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <ContentTitle class="effect_item">Blu-ray&DVD</ContentTitle>
 
     <div
       class="opacity-0 translate-y-[25px] effect_item
       [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]">
-      <Season :color="layoutProps.character.color" :li-class="'w-[428px]'" :seasons="seasons"></Season>
+      <Season :color="`var(${color})`" :li-class="'w-[428px]'" :seasons="seasons"></Season>
 
       <div class="mb-[30px] text-center effect_item">
         <ul>
           <li v-for="category in categories"
             class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.now]:before:opacity-100 [&.now]:before:w-full [&.now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]"
@@ -91,14 +92,14 @@ onMounted(() => {
 
       <div
         class="relative w-[846px] mb-[72px] z-[2]
-        before:block before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:z-[-1] before:bg-[#fbba78]
-        after:box-content after:absolute after:top-[19px] after:left-[5px] after:w-[836px] after:h-[3px] after:border-t-4 after:border-b-2 after:border-solid after:border-black after:bg-[#fbba78]">
+        before:block before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:z-[-1] before:bg-[var(--my-color-var)]
+        after:box-content after:absolute after:top-[19px] after:left-[5px] after:w-[836px] after:h-[3px] after:border-t-4 after:border-b-2 after:border-solid after:border-black after:bg-[var(--my-color-var)]">
         <div
           class="relative pt-[78px] pr-[43px] pb-[77px] pl-[63px] bg-white border-[5px] border-solid border-black
           before:absolute before:top-1/2 before:left-[-18px] before:-translate-y-1/2 before:w-[36px] before:h-[90%]
           before:bg-[url('/src/assets/img/chara/bg_note_repeat.svg')]
           before:bg-top before:bg-repeat-y before:bg-contain
-          after:box-content after:absolute after:bottom-[19px] after:left-0 after:w-full after:h-[3px] after:border-t-2 after:border-b-4 after:border-solid after:border-black after:bg-[#fbba78]">
+          after:box-content after:absolute after:bottom-[19px] after:left-0 after:w-full after:h-[3px] after:border-t-2 after:border-b-4 after:border-solid after:border-black after:bg-[var(--my-color-var)]">
           <h3 class="text-[27px] text-center font-bold tracking-wider">ぼくたちは勉強ができない！ vol.1</h3>
           <div class="mt-[16px] mx-auto mb-[40px] text-[22px] text-center font-bold tracking-wider">
             2019年12月25日(水) 発売
@@ -109,7 +110,7 @@ onMounted(() => {
               <dl class="tracking-wider">
                 <dt
                   class="relative pt-0 px-0 pb-[9px] mt-0 mx-0 mb-[26px] text-[20px] font-bold
-                  after:box-content after:block after:absolute after:bottom-[-9px] after:w-full after:h-[6px] after:border after:border-solid after:border-black after:bg-[#fbba78]">
+                  after:box-content after:block after:absolute after:bottom-[-9px] after:w-full after:h-[6px] after:border after:border-solid after:border-black after:bg-[var(--my-color-var)]">
                   完全生産限定版Blu-ray</dt>
                 <dd class="mt-0 mx-0 mb-[36px] text-[18px] font-extrabold leading-[1.6]">
                   ￥6,800+税<br>
@@ -117,7 +118,7 @@ onMounted(() => {
                 </dd>
                 <dt
                   class="relative pt-0 px-0 pb-[9px] mt-0 mx-0 mb-[26px] text-[20px] font-bold
-                  after:box-content after:block after:absolute after:bottom-[-9px] after:w-full after:h-[6px] after:border after:border-solid after:border-black after:bg-[#fbba78]">
+                  after:box-content after:block after:absolute after:bottom-[-9px] after:w-full after:h-[6px] after:border after:border-solid after:border-black after:bg-[var(--my-color-var)]">
                   完全生産限定版DVD</dt>
                 <dd class="mt-0 mx-0 mb-[36px] text-[18px] font-extrabold leading-[1.6]">
                   ￥5,800+税<br>
@@ -125,12 +126,12 @@ onMounted(() => {
                 </dd>
                 <dt
                   class="relative pt-0 px-0 pb-[9px] mt-0 mx-0 mb-[26px] text-[20px] font-bold
-                  after:box-content after:block after:absolute after:bottom-[-9px] after:w-full after:h-[6px] after:border after:border-solid after:border-black after:bg-[#fbba78]">
+                  after:box-content after:block after:absolute after:bottom-[-9px] after:w-full after:h-[6px] after:border after:border-solid after:border-black after:bg-[var(--my-color-var)]">
                   収録話</dt>
                 <dd class="mt-0 mx-0 mb-[36px] text-[18px] font-extrabold leading-[1.6]">1話、2話収録</dd>
               </dl>
               <div
-                class="relative w-[206px] h-[42px] rounded-[30px] leading-[40px] mt-[46px] mx-auto mb-0 text-[19px] font-bold text-center [box-shadow:_3px_3px_#000] bg-[#fbba78] block
+                class="relative w-[206px] h-[42px] rounded-[30px] leading-[40px] mt-[46px] mx-auto mb-0 text-[19px] font-bold text-center [box-shadow:_3px_3px_#000] bg-[var(--my-color-var)] block
                 scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
                 hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
                 after:absolute after:top-0 after:right-[2px] after:w-[25px] after:h-full
@@ -144,7 +145,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <Hr />
+      <Hr :color="color" />
 
       <Item class="mx-auto my-0">
         <H4>完全生産限定版特典</H4>
@@ -158,7 +159,7 @@ onMounted(() => {
             キャラクターソング：「流星のち晴れ」古橋文乃（CV.白石晴香）<br>＆オリジナル・サウンドトラック Vol.2
             <div
               class="relative w-[430px] h-[58px] mt-[3px] mx-0 mb-0 p-0 border-[3px] border-solid border-black text-[9px] select-none leading-[1em] overflow-hidden z-[999]">
-              <div class="h-full border-t-2 border-solid border-[#fbba78]" id="brightcovePlayer01">
+              <div class="h-full border-t-2 border-solid border-[var(--my-color-var)]" id="brightcovePlayer01">
                 <div class="h-full border-t border-solid border-black">
                   <div
                     class="ui-time font-montserrat block w-auto absolute top-[15px] right-[9px] text-[11px] tracking-widest text-black">
@@ -214,7 +215,7 @@ onMounted(() => {
           ※商品の特典および仕様は予告なく変更になる場合がございます。</p>
       </Item>
 
-      <Hr />
+      <Hr :color="color" />
 
       <Item>
         <H4>第1巻店舗共通購入特典</H4>
@@ -238,7 +239,7 @@ onMounted(() => {
         </div>
       </Item>
 
-      <Hr />
+      <Hr :color="color" />
 
       <Item>
         <H4>全巻店舗共通購入特典</H4>
@@ -261,7 +262,7 @@ onMounted(() => {
         </div>
       </Item>
 
-      <Hr />
+      <Hr :color="color" />
 
       <Item>
         <H4>店舗別特典</H4>
@@ -432,7 +433,7 @@ onMounted(() => {
         </ul>
       </Item>
 
-      <Hr />
+      <Hr :color="color" />
     </div>
   </AppLayout>
 </template>

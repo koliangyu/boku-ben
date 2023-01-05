@@ -1,11 +1,11 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { onMounted, onUnmounted } from 'vue'
+import { useThemeStore } from '../stores/theme'
 
-const props = defineProps({
-  color: String,
-})
+const store = useThemeStore()
+const { particleColor } = storeToRefs(store)
 
-const particleColor = ref(props.color)
 let stage = null
 let particleSystem = null
 

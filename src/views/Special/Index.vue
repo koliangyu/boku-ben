@@ -1,16 +1,17 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import ContentTitle from '../../components/ContentTitle.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.MAFUYU)
 
 const layoutProps = {
   contentInnerClass: 'pb-[270px]',
-  character: {
-    color: '#f4afc4',
-    bgTop: '/src/assets/img/common/bg/mafuyu/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/mafuyu/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_mafuyu.png',
-    particleColor: '339',
-  },
 }
 
 const specials = [
@@ -78,7 +79,7 @@ const specials = [
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <ContentTitle class="effect_item">SPECIAL</ContentTitle>
 
     <ul
@@ -88,13 +89,13 @@ const specials = [
         class="group inline-block relative w-[393px] mb-[38px] align-top text-[16px] tracking-normal even:ml-[60px]">
         <div
           class="relative w-full pt-[44%]
-          before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:bg-[#f4afc4]
+          before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:bg-[var(--my-color-var)]
           before:translate-x-0 before:translate-y-0 before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
           group-hover:before:translate-x-[10px] group-hover:before:translate-y-[10px] group-hover:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
           after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-4 after:border-solid after:border-black after:box-border">
           <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
             <div
-              class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat origin-center before:bg-[#f4afc4]
+              class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat origin-center before:bg-[var(--my-color-var)]
               before:opacity-30 before:absolute before:top-1/2 before:left-1/2 before:w-[250%] before:h-[250%]
               before:translate-x-[10%] before:translate-y-[-50%] before:rotate-[-45deg] before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
               group-hover:before:translate-x-[-50%] group-hover:before:translate-y-[-50%] group-hover:before:rotate-[-45deg] group-hover:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]"
@@ -102,7 +103,7 @@ const specials = [
           </div>
         </div>
         <div class="inline-block relative mt-[34px] font-semibold text-[13px] leading-[1.3em] tracking-[.075em]
-          before:opacity-70 before:absolute before:bottom-[-5px] before:left-0 before:w-0 before:h-[10px] before:bg-[#f4afc4]
+          before:opacity-70 before:absolute before:bottom-[-5px] before:left-0 before:w-0 before:h-[10px] before:bg-[var(--my-color-var)]
           before:[transition:_width_.4s_cubic-bezier(.215,_.61,_.355,_1)]
           group-hover:before:w-full group-hover:before:[transition:_width_.4s_cubic-bezier(.215,_.61,_.355,_1)]">
           <p class="relative z-[1] overflow-hidden whitespace-nowrap text-ellipsis">{{ special.title }}</p>

@@ -2,6 +2,7 @@
 import DecoItem from '../../../components/DecoItem.vue'
 
 defineProps({
+  color: String,
   character: {
     slug: String,
     name: Array,
@@ -15,9 +16,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="group relative" :class="character.slug">
+  <div class="group relative" :class="character.slug" :style="`--my-color-var: var(${color})`">
     <div class="absolute top-[100px] left-1/2 -translate-x-1/2 w-[835px] h-[78.5%]">
-      <div class="opacity-70 absolute top-[20px] left-[20px] w-full h-full bg-[#9ce9f5]"></div>
+      <div class="opacity-70 absolute top-[20px] left-[20px] w-full h-full bg-[var(--my-color-var)]"></div>
       <div class="absolute top-0 left-0 w-full h-full px-0 py-[15px] bg-white border-[5px] border-solid border-black">
         <div class="relative w-full h-full
         before:absolute before:bottom-0 before:left-0 before:w-full before:h-[29%]
@@ -25,7 +26,7 @@ defineProps({
         after:absolute after:top-1/2 after:left-[-18px] after:-translate-y-1/2 after:w-[36px] after:h-[96%]
         after:bg-[url('/src/assets/img/chara/bg_note_repeat.svg')] after:bg-top after:bg-repeat-y after:bg-contain">
 
-          <DecoItem color="#9ce9f5"></DecoItem>
+          <DecoItem :color="`var(${color})`"></DecoItem>
         </div>
       </div>
     </div>

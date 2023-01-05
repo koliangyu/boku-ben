@@ -1,16 +1,17 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import ContentTitle from '../../components/ContentTitle.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.FUMINO)
 
 const layoutProps = {
   contentInnerClass: 'w-[895px] pb-[316px]',
-  character: {
-    color: '#9ce9f5',
-    bgTop: '/src/assets/img/common/bg/fumino/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/fumino/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_fumino.png',
-    particleColor: '187',
-  },
 }
 
 const goods = [
@@ -78,7 +79,7 @@ const goods = [
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <ContentTitle class="effect_item">GOODS</ContentTitle>
 
     <div class="relative effect_item">
@@ -87,14 +88,14 @@ const goods = [
           class="group relative w-[198px] h-auto mt-0 mr-[24px] mb-[40px] ml-0 [transition:_all_.3s_cubic-bezier(.165,_.84,_.44,_1)]">
           <div
             class="relative w-[198px] h-[198px] overflow-hidden bg-white border-2 border-solid border-[#e6e6e6] bg-no-repeat bg-center bg-contain
-            before:block before:opacity-30 before:absolute before:top-1/2 before:left-1/2 before:w-[200%] before:h-[200%] before:bg-[#9ce9f5]
+            before:block before:opacity-30 before:absolute before:top-1/2 before:left-1/2 before:w-[200%] before:h-[200%] before:bg-[var(--my-color-var)]
             before:translate-x-[22%] before:translate-y-[0%] before:rotate-[-45deg] before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
             group-hover:before:translate-x-[-50%] group-hover:before:translate-y-[-50%] group-hover:before:rotate-[-45deg] group-hover:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]"
             :style="`background-image:url(${item.img})`">
           </div>
           <p
             class="relative w-full pt-[30px] font-extrabold text-[17px] leading-normal [transition:_all_.3s_cubic-bezier(.165,_.84,_.44,_1)]
-            before:box-content before:block before:absolute before:top-[13px] before:left-0 before:w-full before:h-[3px] before:border-t-4 before:border-b-2 before:border-solid before:border-black before:bg-[#9ce9f5]">
+            before:box-content before:block before:absolute before:top-[13px] before:left-0 before:w-full before:h-[3px] before:border-t-4 before:border-b-2 before:border-solid before:border-black before:bg-[var(--my-color-var)]">
             {{ item.name }}</p>
           <a :href="item.href" class="block absolute top-0 left-0 z-[2] w-full h-full"></a>
         </li>
@@ -102,7 +103,7 @@ const goods = [
 
       <div class="relative align-top text-center">
         <div v-if="false" class="inline-block relative w-[42px] h-[42px] rounded-full [box-shadow:_3px_3px_#000] cursor-pointer [transition:_all_.6s_cubic-bezier(.23,_1,_.32,_1)]
-        bg-[url(/src/assets/img/common/arrow_left.svg)] bg-no-repeat bg-center bg-[15px_auto] bg-[#9ce9f5]
+        bg-[url(/src/assets/img/common/arrow_left.svg)] bg-no-repeat bg-center bg-[15px_auto] bg-[var(--my-color-var)]
         scale-100 origin-center
         hover:scale-[.93]">
           <a href="?p=1" class="absolute top-0 left-0 w-full h-full"></a>
@@ -130,7 +131,7 @@ const goods = [
         </ul>
 
         <div class="inline-block relative w-[42px] h-[42px] rounded-full [box-shadow:_3px_3px_#000] cursor-pointer [transition:_all_.6s_cubic-bezier(.23,_1,_.32,_1)]
-        bg-[url(/src/assets/img/common/arrow_right.svg)] bg-no-repeat bg-center bg-[15px_auto] bg-[#9ce9f5]
+        bg-[url(/src/assets/img/common/arrow_right.svg)] bg-no-repeat bg-center bg-[15px_auto] bg-[var(--my-color-var)]
         scale-100 origin-center
         hover:scale-[.93]">
           <a href="?p=2" class="absolute top-0 left-0 w-full h-full"></a>

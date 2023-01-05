@@ -1,22 +1,22 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import { RouterLink } from 'vue-router'
 import ContentTitle from '../../components/ContentTitle.vue'
 import DecoItem from '../../components/DecoItem.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
 
-const layoutProps = {
-  character: {
-    color: '#fbba78',
-    bgTop: '/src/assets/img/common/bg/rizu/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/rizu/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_rizu.png',
-    particleColor: '29',
-  },
-}
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.RIZU)
+
+const layoutProps = {}
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <ContentTitle class="effect_item">NEWS</ContentTitle>
 
     <div
@@ -27,7 +27,7 @@ const layoutProps = {
           <ul>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal cate-now
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -38,7 +38,7 @@ const layoutProps = {
             </li>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -49,7 +49,7 @@ const layoutProps = {
             </li>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -60,7 +60,7 @@ const layoutProps = {
             </li>
             <li
               class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fbba78]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.cate-now]:before:opacity-100 [&.cate-now]:before:w-full [&.cate-now]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -74,7 +74,7 @@ const layoutProps = {
       </div>
 
       <div class="relative px-0 py-[8px] bg-[rgba(255,_255,_255,_.7)]">
-        <DecoItem :color="layoutProps.character.color"></DecoItem>
+        <DecoItem :color="`var(${color})`"></DecoItem>
 
         <ul class="divide-y-2 divide-black divide-solid">
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -100,7 +100,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -126,7 +126,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -149,7 +149,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -175,7 +175,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -201,7 +201,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -225,7 +225,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -251,7 +251,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
           <li class="relative pt-[20px] pb-[17px] px-[20px] text-[0] tracking-[-.4em]">
@@ -277,7 +277,7 @@ const layoutProps = {
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
-             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[#fbba78]
+             before:opacity-0 before:absolute before:top-0 before:left-0 before:w-full before:h-full [transition:_opacity_.3s_ease-out] before:bg-[var(--my-color-var)]
              hover:before:opacity-30 hover:before:[transition:_opacity_.3s_ease-out]"></RouterLink>
           </li>
         </ul>
@@ -294,7 +294,7 @@ const layoutProps = {
          after:absolute after:top-0 after:left-0 after:w-full after:h-full
          after:bg-[url(/src/assets/img/common/arrow_left.svg)] after:bg-center after:bg-no-repeat after:bg-[15px_auto]">
           <div class="absolute top-[2px] left-[2px] bg-black w-full h-full rounded-full"></div>
-          <div class="relative w-full h-full rounded-full bg-[#fbba78]"></div>
+          <div class="relative w-full h-full rounded-full bg-[var(--my-color-var)]"></div>
         </a>
       </li>
 
@@ -328,7 +328,7 @@ const layoutProps = {
          after:absolute after:top-0 after:left-0 after:w-full after:h-full
          after:bg-[url(/src/assets/img/common/arrow_right.svg)] after:bg-center after:bg-no-repeat after:bg-[15px_auto]">
           <div class="absolute top-[2px] left-[2px] bg-black w-full h-full rounded-full"></div>
-          <div class="relative w-full h-full rounded-full bg-[#fbba78]"></div>
+          <div class="relative w-full h-full rounded-full bg-[var(--my-color-var)]"></div>
         </a>
       </li>
     </ul>

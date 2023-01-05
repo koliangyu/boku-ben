@@ -1,8 +1,16 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import ContentTitle from '../../components/ContentTitle.vue'
 import MovieModal from '../../components/Modals/MovieModal.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
+import { useThemeStore } from '../../stores/theme'
+
+const store = useThemeStore()
+const { color } = storeToRefs(store)
+const { character, changeCharacter } = store
+
+changeCharacter(character.URUKA)
 
 const showModal = ref(false)
 
@@ -10,13 +18,6 @@ const selectedVideoId = ref(null)
 
 const layoutProps = {
   contentInnerClass: 'pb-[272px]',
-  character: {
-    color: '#fb9c95',
-    bgTop: '/src/assets/img/common/bg/uruka/pc_bg_top.png',
-    bgUnder: '/src/assets/img/common/bg/uruka/pc_bg_under.png',
-    footerImg: '/src/assets/img/common/footer/img_footer_uruka.png',
-    particleColor: '0',
-  },
 }
 
 const movies = [
@@ -68,14 +69,14 @@ const movies = [
 </script>
 
 <template>
-  <AppLayout v-bind="layoutProps">
+  <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
     <ContentTitle class="effect_item">MOVIE</ContentTitle>
 
     <nav class="mb-[30px] text-center">
       <ul>
         <li
           class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal current
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fb9c95]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.current]:before:opacity-100 [&.current]:before:w-full [&.current]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -84,7 +85,7 @@ const movies = [
         </li>
         <li
           class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fb9c95]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.current]:before:opacity-100 [&.current]:before:w-full [&.current]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -93,7 +94,7 @@ const movies = [
         </li>
         <li
           class="peer peer-[]:ml-[29px] relative inline-block align-top tracking-normal
-            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[#fb9c95]
+            before:box-content before:opacity-0 before:absolute before:bottom-[-6px] before:left-[-2.5px] before:w-0 before:h-[2px] before:border-2 before:border-solid before:border-black before:leading-[1px] before:bg-[var(--my-color-var)]
             before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             hover:before:opacity-100 hover:before:w-full hover:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]
             [&.current]:before:opacity-100 [&.current]:before:w-full [&.current]:before:[transition:_all_0.7s_cubic-bezier(0.23,_1,_0.32,_1)]">
@@ -111,13 +112,13 @@ const movies = [
         @click="(selectedVideoId = movie.videoId, showModal = true)">
         <div
           class="relative w-full pt-[56.5%]
-          before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:bg-[#fb9c95]
+          before:opacity-70 before:absolute before:top-[20px] before:left-[20px] before:w-full before:h-full before:bg-[var(--my-color-var)]
           before:translate-x-0 before:translate-y-0 before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
           group-hover:before:translate-x-[10px] group-hover:before:translate-y-[10px] group-hover:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
           after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-4 after:border-solid after:border-black after:box-border">
           <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
             <div
-              class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat origin-center before:bg-[#fb9c95]
+              class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat origin-center before:bg-[var(--my-color-var)]
               before:opacity-30 before:absolute before:top-1/2 before:left-1/2 before:w-[250%] before:h-[250%]
               before:translate-x-[20%] before:translate-y-[-50%] before:rotate-[-45deg] before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
               group-hover:before:translate-x-[-50%] group-hover:before:translate-y-[-50%] group-hover:before:rotate-[-45deg] group-hover:before:[transition:_transform_.6s_cubic-bezier(.215,_.61,_.355,_1)]
@@ -128,7 +129,7 @@ const movies = [
           </div>
         </div>
         <div class="inline-block relative max-w-full mt-[35px] align-top font-semibold text-[13px] leading-[1.3em] tracking-[.075em]
-          before:opacity-70 before:absolute before:bottom-[-5px] before:left-0 before:w-0 before:h-[10px] before:bg-[#fb9c95]
+          before:opacity-70 before:absolute before:bottom-[-5px] before:left-0 before:w-0 before:h-[10px] before:bg-[var(--my-color-var)]
           before:[transition:_width_.4s_cubic-bezier(.215,_.61,_.355,_1)]
           group-hover:before:w-full group-hover:before:[transition:_width_.4s_cubic-bezier(.215,_.61,_.355,_1)]">
           <p class="relative z-[1]">{{ movie.name }}</p>
@@ -137,7 +138,7 @@ const movies = [
     </ul>
   </AppLayout>
 
-  <MovieModal :show="showModal" :color="layoutProps.character.color" @close="showModal = false">
+  <MovieModal :show="showModal" :color="`var(${color})`" @close="showModal = false">
     <div class="relative w-full pt-[56.25%]">
       <iframe width="900" height="506" :src="`https://www.youtube-nocookie.com/embed/${selectedVideoId}`"
         frameborder="0" class="absolute top-0 left-0 w-full h-full"></iframe>
