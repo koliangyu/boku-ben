@@ -9,8 +9,9 @@ const { color } = storeToRefs(store)
 <template>
   <div
     class="fixed right-0 bottom-[100px] z-[9] translate-x-[60px] translate-y-[0%] p-[4px] border-2 border-solid border-black rounded-[10px]
-   transition-transform duration-[400ms] ease-[cubic-bezier(.445,_.05,_.55,_.95)]
-   hover:translate-x-[30px] hover:translate-y-[0] hover:transition-transform hover:duration-[400ms] hover:ease-[cubic-bezier(.445,_.05,_.55,_.95)]">
+    md:[transition:_transform_.4s_cubic-bezier(.445,_.05,_.55,_.95)]
+    md:hover:translate-x-[30px] md:hover:translate-y-0 md:hover:[transition:_transform_.4s_cubic-bezier(.445,_.05,_.55,_.95)]
+    max-md:top-[42.5%] max-md:bottom-auto max-md:translate-x-[34px] max-md:w-[68px] max-md:p-[2px] max-md:border max-md:border-solid max-md:border-black max-md:rounded-[5px]">
     <div
       class="pt-[23px] pr-[30px] pb-[25px] pl-[8px] bg-black border-2 border-solid border-black rounded-[7px] font-extrabold text-[20px] font-montserrat tracking-[.075em] [writing-mode:vertical-rl]"
       :style="`color: var(${color})`">

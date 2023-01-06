@@ -19,6 +19,7 @@ const isActive = ref(false)
 
 const layoutProps = {
   contentInnerClass: 'w-[100%] pt-[0] pb-[212px]',
+  isTop: true,
 }
 
 const news = [
