@@ -19,7 +19,7 @@ defineProps({
 </script>
 
 <template>
-  <div id="l-wrapper" class="w-full font-wrapper md:table"
+  <div id="l-wrapper" class="w-full overflow-hidden font-wrapper md:table"
     :style="`--my-pc-background-var: url(${bgTop}), url(${bgUnder}); --my-sp-background-var: url(${bgRepeat})`">
     <BgCanvas />
 
@@ -27,12 +27,12 @@ defineProps({
 
     <div class="bg-[position:top_-300px_left_0,_right_bottom] bg-[length:940px_auto,_594px_auto] bg-no-repeat bg-[image:var(--my-pc-background-var)]
       md:table-cell md:align-top
-      max-md:bg-[image:var(--my-sp-background-var)] max-md:pt-[78px]
-      max-md:bg-[position:top_-30vw_left_0] max-md:bg-[length:100%] max-md:bg-repeat-y"
+      max-md:bg-[position:top_-30vw_left_0] max-md:bg-[length:100%] max-md:bg-repeat-y max-md:pt-[78px]
+      max-md:bg-[image:var(--my-sp-background-var)]"
       :class="{ 'max-md:pt-[0] max-md:bg-[position:top_250vw_left_0]': isTop }">
       <div class="relative">
-        <div :class="contentInnerClass"
-          class="relative z-[1] w-[869px] mx-auto my-0 pt-[71px] pb-[232px] min-h-[1000px]">
+        <div :class="contentInnerClass" class="relative z-[1] w-[869px] mx-auto my-0 pt-[71px] pb-[232px] md:min-h-[1000px]
+          max-md:w-[90%] max-md:pt-[20px] max-md:pb-[40px]">
           <slot />
         </div>
       </div>
