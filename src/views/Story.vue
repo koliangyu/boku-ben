@@ -63,7 +63,9 @@ const categories = [
     <div class="opacity-0 translate-y-[25px] effect_item
       [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]
       max-md:translate-y-[15px] max-md:[&.active]:translate-y-0">
-      <Season :color="`var(${color})`" :seasons="seasons"></Season>
+      <Season :color="`var(${color})`" :seasons="seasons" btn-class="max-md:border-2 max-md:rounded-[5px]"
+        is-active-class="max-md:pt-[8px] max-md:px-0 max-md:pb-[8px]"
+        is-passiv-class="max-md:pt-[8px] max-md:px-0 max-md:pb-[8px]"></Season>
 
       <div class="relative w-full mx-auto mt-0 mb-[40px] pl-[10px] text-center effect_item
         max-md:w-[92%] max-md:mb-[18px] max-md:pl-0 max-md:text-center">

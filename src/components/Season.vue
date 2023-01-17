@@ -6,6 +6,9 @@ const route = useRoute()
 defineProps({
   color: String,
   liClass: String,
+  btnClass: String,
+  isActiveClass: String,
+  isPassivClass: String,
   seasons:
   {
     name: String,
@@ -21,15 +24,15 @@ defineProps({
     scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
     hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
     max-md:w-full max-md:text-[17px] max-md:tracking-normal max-md:peer-[]:mt-[12px] max-md:peer-[]:ml-0">
-      <div class="relative overflow-hidden border-[3px] border-solid border-black rounded-[8px]
-      max-md:border-2 max-md:rounded-[5px]">
-        <p class="px-0 py-[12px] is-active
+      <div :class="btnClass" class="relative overflow-hidden border-[3px] border-solid border-black rounded-[8px]">
+        <p :class="isActiveClass" class="px-0 py-[12px] is-active
         [&.is-active]:opacity-0 [&.is-active]:absolute [&.is-active]:top-0 [&.is-active]:left-0 [&.is-active]:w-full [&.is-active]:bg-black
-        group-[.is-current]:[&.is-active]:opacity-100
-        max-md:pt-[8px] max-md:px-0 max-md:pb-[8px]" :style="`color: ${color}`">
+        group-[.is-current]:[&.is-active]:opacity-100" :style="`color: ${color}`">
           {{ season.name }}
         </p>
-        <p class="text-white px-0 py-[12px] max-md:pt-[8px] max-md:px-0 max-md:pb-[8px]">{{ season.name }}</p>
+        <p :class="isPassivClass" class="text-white px-0 py-[12px]">
+          {{ season.name }}
+        </p>
       </div>
       <a :href="season.href" class="block absolute top-0 left-0 w-full h-full"></a>
     </li>

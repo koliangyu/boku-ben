@@ -43,7 +43,7 @@ const swiperOptions = {
 }
 
 const layoutProps = {
-  contentInnerClass: 'w-[890px] pb-[365px]',
+  contentInnerClass: 'w-[890px] pb-[365px] max-md:w-[90%] max-md:pb-[60x]',
 }
 
 const seasons = [
@@ -174,12 +174,12 @@ function scrollToSwiper() {
 
 <template>
   <AppLayout v-bind="layoutProps" :style="`--my-color-var: var(${color})`">
-    <ContentTitle class="mb-[30px] effect_item">CHARACTER</ContentTitle>
+    <ContentTitle class="mb-[30px] max-md:mb-[33px] effect_item">CHARACTER</ContentTitle>
 
-    <div
-      class="relative effect_item
+    <div class="relative effect_item
       opacity-0 translate-y-[25px]
-      [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]">
+      [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]
+      max-md:translate-y-[15px] max-md:[&.active]:translate-y-0">
       <Season :color="`var(${color})`" :seasons="seasons" class="mb-0"></Season>
 
       <swiper id="swiper" :modules="modules" :navigation="swiperOptions.navigation"
@@ -194,28 +194,36 @@ function scrollToSwiper() {
         after:absolute after:w-full after:h-full after:rounded-full after:top-0 after:left-0 after:bg-[var(--my-color-var)]
         scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
         hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
+        max-md:top-0 max-md:right-[52px] max-md:w-[35px] max-md:h-[35px]
         swiper-button-prev">
           <span class="absolute top-1/2 left-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 w-[15px] h-[10px]
-          bg-[url(/src/assets/img/common/arrow_left.svg)] bg-center bg-contain bg-no-repeat"></span>
+          bg-[url(/src/assets/img/common/arrow_left.svg)] bg-center bg-contain bg-no-repeat
+          max-md:w-[15px] max-md:h-[10px]"></span>
         </div>
         <div class="top-[20px] right-[2px] w-[40px] h-[40px] mt-0 bg-none
         before:absolute before:w-full before:h-full before:rounded-full before:top-[2px] before:left-[2px] before:bg-black
         after:absolute after:w-full after:h-full after:rounded-full after:top-0 after:left-0 after:bg-[var(--my-color-var)]
         scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
         hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
+        max-md:top-0 max-md:right-[2px] max-md:w-[35px] max-md:h-[35px]
         swiper-button-next">
           <span class="absolute top-1/2 left-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 w-[15px] h-[10px]
-          bg-[url(/src/assets/img/common/arrow_right.svg)] bg-center bg-contain bg-no-repeat"></span>
+          bg-[url(/src/assets/img/common/arrow_right.svg)] bg-center bg-contain bg-no-repeat
+          max-md:w-[15px] max-md:h-[10px]"></span>
         </div>
       </swiper>
 
-      <div class="mt-[50px]">
-        <h4 class="pb-[40px] font-semibold text-[36px] font-montserrat tracking-[.075em]">CHARACTER LIST</h4>
+      <div class="mt-[50px] max-md:mt-[15px]">
+        <h4 class="pb-[40px] font-semibold text-[36px] font-montserrat tracking-[.075em]
+        max-md:pb-[20px] max-md:text-[23px] max-md:tracking-wider">CHARACTER LIST</h4>
         <div class="slide_pagination text-[0] tracking-[-.4em]">
           <div @click="scrollToSwiper" v-for="(character, index) in characters" class="group swiper-pagination-thumb inline-block mr-[50px] mb-[30px] align-top text-[16px] tracking-normal text-center cursor-pointer
           scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
           hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
-          [&:nth-child(4n)]:mr-0" :class="{ active: currentActive === index + 1 }">
+          [&:nth-child(4n)]:mr-0
+          max-md:w-[28%] max-md:mr-[7%] max-md:mb-[22px] max-md:text-[12px]
+          max-md:[&:nth-child(3n)]:mr-0
+          max-md:[&:nth-child(4n)]:mr-[7%]" :class="{ active: currentActive === index + 1 }">
             <p
               class="relative
               before:opacity-70 before:absolute before:top-[17px] before:left-[17px] before:w-full before:h-full before:rounded-full before:bg-[#ffff4f]
@@ -225,9 +233,12 @@ function scrollToSwiper() {
               group-[.active]:bg-[#fc90b2] group-[.active]:[transition:_background-color_.4s_ease-out]"
                 :alt="character.thumb.name">
             </p>
-            <p class="inline-block relative pt-[20px] align-top font-medium tracking-normal
+            <p
+              class="inline-block relative pt-[20px] align-top font-medium tracking-normal
               before:box-content before:opacity-0 before:absolute before:bottom-[-10px] before:left-0 before:w-full before:h-[2px] before:border-2 before:border-solid before:border-black before:[transition:_opacity_.4s_ease-out] before:bg-[var(--my-color-var)]
-              group-[.active]:before:opacity-100 group-[.active]:before:[transition:_opacity_.4s_ease-out]">
+              group-[.active]:before:opacity-100 group-[.active]:before:[transition:_opacity_.4s_ease-out]
+              max-md:pt-[11px]
+              max-md:before:bottom-[-5px] max-md:before:h-[1px] max-md:before:border max-md:before:border-solid max-md:before:border-black">
               {{ character.thumb.name }}
             </p>
           </div>
