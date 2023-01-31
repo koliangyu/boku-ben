@@ -43,7 +43,7 @@ const swiperOptions = {
 }
 
 const layoutProps = {
-  contentInnerClass: 'w-[890px] pb-[365px] max-md:w-[90%] max-md:pb-[60x]',
+  contentInnerClass: 'w-[890px] pb-[365px] max-md:w-[90%] max-md:pb-[60px]',
 }
 
 const seasons = [
