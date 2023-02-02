@@ -22,6 +22,7 @@ export const useThemeStore = defineStore('theme', () => {
   const color = ref(`--color-${currentCharacter.value}`)
   const bgTop = ref(`/src/assets/img/common/bg/${currentCharacter.value}/pc_bg_top.png`)
   const bgUnder = ref(`/src/assets/img/common/bg/${currentCharacter.value}/pc_bg_under.png`)
+  const bgRepeat = ref(`/src/assets/img/common/bg/${currentCharacter.value}/sp_bg_repeat.jpg`)
   const footerImg = ref(`/src/assets/img/common/footer/img_footer_${currentCharacter.value}.png`)
   const particleColor = ref(particleColorList[currentCharacter.value])
 
@@ -30,6 +31,7 @@ export const useThemeStore = defineStore('theme', () => {
     color.value = `--color-${currentCharacter.value}`
     bgTop.value = `/src/assets/img/common/bg/${currentCharacter.value}/pc_bg_top.png`
     bgUnder.value = `/src/assets/img/common/bg/${currentCharacter.value}/pc_bg_under.png`
+    bgRepeat.value = `/src/assets/img/common/bg/${currentCharacter.value}/sp_bg_repeat.jpg`
     footerImg.value = `/src/assets/img/common/footer/img_footer_${currentCharacter.value}.png`
     particleColor.value = particleColorList[currentCharacter.value]
   }
@@ -40,6 +42,7 @@ export const useThemeStore = defineStore('theme', () => {
     color,
     bgTop,
     bgUnder,
+    bgRepeat,
     footerImg,
     particleColor,
     changeCharacter,

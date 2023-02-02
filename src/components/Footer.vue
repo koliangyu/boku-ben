@@ -39,28 +39,33 @@ function toTop() {
 </script>
 
 <template>
-  <footer class="group block relative pt-[40px] pr-[350px] pb-[30px] pl-[48px] effect_item">
-    <div
-      class="opacity-0 absolute right-0 bottom-0 w-[440px] translate-y-[30px]
-    group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.6s_cubic-bezier(.01,_.53,_.37,_.99),_opacity_.4s_ease-in]">
+  <footer class="group block relative pt-[40px] pr-[350px] pb-[30px] pl-[48px] effect_item
+    max-md:pt-[51px] max-md:pr-[32%] max-md:pb-[18px] max-md:pl-[4.5%]">
+    <div class="opacity-0 absolute right-0 bottom-0 w-[440px] translate-y-[30px]
+      group-[.active]:opacity-100 group-[.active]:translate-y-0 group-[.active]:[transition:_transform_.6s_cubic-bezier(.01,_.53,_.37,_.99),_opacity_.4s_ease-in]
+      max-md:right-[-18%] max-md:w-[65%]">
       <img :src="footerImg" alt="">
     </div>
 
     <ul>
       <li v-for="item in official" class="peer peer-[]:ml-[29px] inline-block align-top tracking-normal scale-100 origin-center transition-transform duration-1000
-        hover:scale-[.93] hover:transition-transform hover:duration-1000">
-        <a :href="item.href" target="_blank"
-          class="block w-full h-full text-black font-semibold text-[16px] font-montserrat tracking-[.13em] no-underline">
+        hover:scale-[.93] hover:transition-transform hover:duration-1000
+        max-md:block max-md:peer-[]:mt-[24px] max-md:peer-[]:ml-0">
+        <a :href="item.href" target="_blank" class="block w-full h-full text-black font-semibold text-[16px] font-montserrat tracking-[.13em] no-underline
+          max-md:text-[14px] max-md:tracking-[.075em]">
           {{ item.name }}
         </a>
       </li>
     </ul>
 
-    <div class="mt-[13px] mb-[23px] mx-0 text-[0] tracking-[-.4em]">
-      <p class="font-semibold font-montserrat tracking-wider inline-block align-middle text-[15px]">SHARE</p>
+    <div class="mt-[13px] mb-[23px] mx-0 text-[0] tracking-[-.4em]
+      max-md:mt-[23px] max-md:mb-[29px]">
+      <p class="font-semibold font-montserrat tracking-wider inline-block align-middle text-[15px]
+        max-md:hidden">SHARE</p>
       <ul class="text-[0] tracking-[-.4em] inline-block align-middle">
         <li v-for="item in share" class="peer peer-[]:ml-[18px] inline-block w-[40px] h-[40px] ml-[22px] bg-transparent rounded-[50%] align-top tracking-normal scale-100 transition-transform duration-1000 origin-center
-         hover:scale-[.93] hover:transition-transform hover:duration-1000">
+          hover:scale-[.93] hover:transition-transform hover:duration-1000
+          max-md:first:ml-0">
           <a :href="item.href" class="block relative w-full h-full" target="_blank">
             <img :src="item.imgUrl"
               class="absolute top-1/2 left-1/2 max-w-[20px] max-h-[23px] -translate-x-1/2 -translate-y-1/2"
@@ -70,8 +75,9 @@ function toTop() {
       </ul>
     </div>
 
-    <p class="relative text-[10px] leading-[20px] tracking-wider">
-      このサイトに記載されている一切の文書・図版・写真等を、手段や形態を問わず複製・転載されることを禁じます。<br>
+    <p class="relative text-[10px] leading-[20px] tracking-wider max-md:leading-[14px]">
+      このサイトに記載されている<br class="hidden max-md:block">一切の文書・図版・写真等を、手段や形態を問わず<br
+        class="hidden max-md:block">複製・転載されることを禁じます。<br>
       ©筒井大志／集英社・ぼくたちは勉強ができない製作委員会
     </p>
 
