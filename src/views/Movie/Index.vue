@@ -141,7 +141,8 @@ const movies = [
   </AppLayout>
 
   <MovieModal :show="showModal" :color="`var(${color})`" @close="showModal = false">
-    <div class="relative w-full pt-[56.25%]">
+    <div class="relative w-full pt-[56.25%]
+    max-md:pt-[56%]">
       <iframe width="900" height="506" :src="`https://www.youtube-nocookie.com/embed/${selectedVideoId}`"
         frameborder="0" class="absolute top-0 left-0 w-full h-full"></iframe>
     </div>

@@ -14,11 +14,15 @@ defineProps({
       <slot />
 
       <div class="block fixed top-[16px] right-[20px] z-[21] [transform:_translate3d(0,_0,_0)] [backface-visibility:_hidden] cursor-pointer
-    scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
-    hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]" @click="$emit('close')">
-        <div class="absolute top-[4px] left-[4px] bg-black w-[80px] h-[80px] rounded-full"></div>
-        <div class="relative bg-white w-[80px] h-[80px] rounded-full"></div>
-        <ul class="absolute top-1/2 left-1/2 w-[40px] h-[40px] -translate-x-1/2 -translate-y-1/2">
+      scale-100 [transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)] origin-center
+      hover:scale-[.93] hover:[transition:_transform_1s_cubic-bezier(.165,_.84,_.44,_1)]
+      max-md:top-[10px] max-md:right-[10px]" @click="$emit('close')">
+        <div class="absolute top-[4px] left-[4px] bg-black w-[80px] h-[80px] rounded-full
+        max-md:top-[2px] max-md:left-[2px] max-md:w-[55px] max-md:h-[55px]"></div>
+        <div class="relative bg-white w-[80px] h-[80px] rounded-full
+        max-md:w-[55px] max-md:h-[55px]"></div>
+        <ul class="absolute top-1/2 left-1/2 w-[40px] h-[40px] -translate-x-1/2 -translate-y-1/2
+        max-md:w-[23px] max-md:h-[21px]">
           <li class="absolute top-1/2 left-1/2 w-full h-[4.5px] bg-black -translate-x-1/2 -translate-y-1/2 rotate-45">
           </li>
           <li class="absolute top-1/2 left-1/2 w-full h-[4.5px] bg-black -translate-x-1/2 -translate-y-1/2 -rotate-45">
