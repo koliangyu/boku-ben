@@ -1,6 +1,21 @@
-# Vue 3 + Vite
+# boku-ben
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Learn to use vue3 and tailwind css to implement ぼくたちは希できない! official website
+
+## Installation
+
+```bash
+# enter the project directory
+cd boku-ben
+
+# install dependency
+npm install
+
+# build process
+npm run dev
+```
+
+Open http://localhost:5173
 
 ## Recommended IDE Setup
 
