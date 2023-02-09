@@ -17,7 +17,7 @@ const open = ref(false)
 const isDesktop = ref(checkWidthIsDesktop())
 
 const navigation = ref([
-  { name: 'TOP', href: '/', target: null },
+  { name: 'TOP', href: '/?from_lower', target: null },
   { name: 'NEWS', href: '/news', target: null },
   { name: 'ON AIR', href: '/onair', target: null },
   { name: 'STORY', href: '/story', target: null },
@@ -62,7 +62,7 @@ onUnmounted(() => {
     :style="`--my-color-var: var(${color})`">
     <div class="hidden max-md:block">
       <div class="max-md:w-[29.5%]" :class="{ 'max-md:invisible': isTop }">
-        <RouterLink :to="{ name: 'home' }">
+        <RouterLink :to="{ name: 'home', query: { from_lower: null } }">
           <img src="@/assets/img/common/logo.svg" alt="ぼくたちは勉強ができない">
         </RouterLink>
       </div>
@@ -97,7 +97,7 @@ onUnmounted(() => {
         max-md:before:opacity-95 max-md:before:fixed max-md:before:top-0 max-md:before:left-0 max-md:before:w-full max-md:before:h-full
         before:bg-[var(--my-color-var)]" v-show="isDesktop || show">
         <div class="w-[200px] mt-0 mb-[11px] mx-auto block max-md:hidden">
-          <RouterLink :to="{ name: 'home' }" class="block w-full h-full">
+          <RouterLink :to="{ name: 'home', query: { from_lower: null } }" class="block w-full h-full">
             <img src="@/assets/img/common/logo02.svg" alt="ぼくたちは勉強ができない">
           </RouterLink>
         </div>

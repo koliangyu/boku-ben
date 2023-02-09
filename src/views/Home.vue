@@ -3,6 +3,7 @@ import { storeToRefs } from 'pinia'
 import { onMounted, onUnmounted, ref } from 'vue'
 import ContentTitle from '../components/ContentTitle.vue'
 import DecoItem from '../components/DecoItem.vue'
+import Loading from '../components/Loading.vue'
 import MovieModal from '../components/Modals/MovieModal.vue'
 import AppLayout from '../layouts/AppLayout.vue'
 import { useThemeStore } from '../stores/theme'
@@ -247,4 +248,6 @@ onUnmounted(() => {
         class="absolute top-0 left-0 w-full h-full"></iframe>
     </div>
   </MovieModal>
+
+  <Loading />
 </template>
