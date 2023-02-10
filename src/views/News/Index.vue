@@ -1,4 +1,5 @@
 <script setup>
+import imgNoimgUrl from '@/assets/img/news/img_noimg.jpg'
 import { storeToRefs } from 'pinia'
 import { RouterLink } from 'vue-router'
 import ContentTitle from '../../components/ContentTitle.vue'
@@ -82,7 +83,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal
@@ -101,8 +102,7 @@ const layoutProps = {}
                 原作コミックス21巻音声ドラマ＆ミニ画集付き同梱版が予約受付中！<br>&nbsp;<br>真冬＆あすみそれぞれのパラレルストーリーを、TVアニメキャストが新たに熱演！<br>&nbsp;<br>予約締切は12月21日（月）となっておりますので<br>お申し込み逃しなく！<br>&nbsp;<br>【予約締切】2020年12月21日（月）<br>【発売日】2021年3月4日（木）　<br>【予価】本体2,200円+税<br>【商品内容】JC『ぼくたちは勉強ができない』第21巻、音声ドラマ「明日の夜の小妖精編」「薄氷の女王編」（収録時間30分以上予定／ミニ画集内に「専用サービスMIRAIL」用コードを記載）、ミニ画集（JCサイズ／フルカラー16ページ予定）<br>※「ぼくたちは勉強ができない」第21巻通常版も3月4日（木）同日発売です。<br>ネット書店でも絶賛予約受付中！<br>&nbsp;<br>Amazon様<br><a
                   href="https://www.amazon.co.jp/dp/4089083982/">https://www.amazon.co.jp/dp/4089083982/</a><br><br>楽天ブックス様<br><a
                   href="https://books.rakuten.co.jp/rb/16510650/">https://books.rakuten.co.jp/rb/16510650/</a><br><br>セブンネットショッピング様<br><a
-                  href="https://7net.omni7.jp/detail/1107143910">https://7net.omni7.jp/detail/1107143910</a><br>&nbsp;<br><img
-                  src="SYS/CONTENTS/2020110917240271325542/w776" width="776"><br>
+                  href="https://7net.omni7.jp/detail/1107143910">https://7net.omni7.jp/detail/1107143910</a><br>&nbsp;<br><br>
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
@@ -114,7 +114,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal
@@ -133,8 +133,7 @@ const layoutProps = {}
                 原作コミックス20巻は音声ドラマ＆ミニ画集付き同梱版が予約受付中！<br>&nbsp;<br>理珠＆文乃それぞれのパラレルストーリーを、TVアニメキャストが新たに熱演！<br>あのハッピーエンドが音声ドラマで蘇る！<br>&nbsp;<br>予約締切は10月27日（火）となっておりますので<br>お申し込み逃しなく！<br>&nbsp;<br>【予約締切】2020年10月27日（火）<br>【発売日】2021年1月4日（月）　<br>【予価】本体2,200円+税<br>【商品内容】JC『ぼくたちは勉強ができない』第20巻、音声ドラマ「機械仕掛けの親指姫編」「文学の森の眠り姫編」（収録時間30分以上予定／ミニ画集内に「専用サービスMIRAIL」用コードを記載）、ミニ画集（JCサイズ／フルカラー16ページ予定）<br>※「ぼくたちは勉強ができない」第20巻通常版も1月4日（月）同日発売です。<br>&nbsp;<br>ネット書店でも絶賛予約受付中！<br>Amazon様<br><a
                   href="https://www.amazon.co.jp/dp/4089083974">https://www.amazon.co.jp/dp/4089083974</a><br>楽天ブックス様<br><a
                   href="https://books.rakuten.co.jp/rb/16440184/">https://books.rakuten.co.jp/rb/16440184/</a><br>セブンネットショッピング様<br><a
-                  href="https://7net.omni7.jp/detail/1107127109">https://7net.omni7.jp/detail/1107127109</a><br>&nbsp;<br><img
-                  src="SYS/CONTENTS/2020102119004161603789/w776" width="776"><br>
+                  href="https://7net.omni7.jp/detail/1107127109">https://7net.omni7.jp/detail/1107127109</a><br>&nbsp;<br><br>
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
@@ -146,7 +145,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal
@@ -175,7 +174,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal
@@ -193,9 +192,7 @@ const layoutProps = {}
                 max-md:h-[34px] max-md:text-[12px] max-md:leading-[17px]">
                 6/24(水)発売第2期BD&amp;DVD第6巻完全生産限定版の<br>■キャラクタデザイン・佐々木政勝
                 描き下ろし三方背ケース<br>■特製デジパック<br>イラスト公開！<br>&nbsp;<br>三方背ケースにはヒロイン5人、デジパックには成幸含め全員の素敵な姿が描かれております<br>是非チェックください<br>&nbsp;<br>▼詳細▼<br><a
-                  href="https://boku-ben.com/bddvd/2nd/06.html">https://boku-ben.com/bddvd/2nd/06.html</a><br>&nbsp;<br><img
-                  src="SYS/CONTENTS/2020041716030799965089/w595" width="595"><br>&nbsp;<br><img
-                  src="SYS/CONTENTS/2020041716031923238522/w598" width="598"><br>
+                  href="https://boku-ben.com/bddvd/2nd/06.html">https://boku-ben.com/bddvd/2nd/06.html</a><br>&nbsp;<br><br>
               </div>
             </div>
             <RouterLink :to="{ name: 'news.show', params: { id: '55576' } }" class="block absolute top-0 left-0 w-full h-full
@@ -207,7 +204,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal
@@ -239,7 +236,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal
@@ -269,7 +266,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal
@@ -301,7 +298,7 @@ const layoutProps = {}
             <div class="relative w-[120px] h-[120px] inline-block align-top text-[16px] tracking-normal
               max-md:w-[93px] max-md:h-[93px]">
               <div class="absolute top-0 right-0 bottom-0 left-0 bg-center bg-cover bg-no-repeat bg-white"
-                style="background-image: url(/src/assets/img/news/img_noimg.jpg)">
+                :style="`background-image: url(${imgNoimgUrl})`">
               </div>
             </div>
             <div class="w-[calc(100%_-_134px)] ml-[14px] inline-block align-top text-[16px] tracking-normal

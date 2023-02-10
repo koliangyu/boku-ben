@@ -1,4 +1,19 @@
 <script setup>
+import imgComic1Url from '@/assets/img/comic/img_comic_1.jpg'
+import imgComic10Url from '@/assets/img/comic/img_comic_10.jpg'
+import imgComic11Url from '@/assets/img/comic/img_comic_11.jpg'
+import imgComic12Url from '@/assets/img/comic/img_comic_12.jpg'
+import imgComic13Url from '@/assets/img/comic/img_comic_13.jpg'
+import imgComic14Url from '@/assets/img/comic/img_comic_14.jpg'
+import imgComic15Url from '@/assets/img/comic/img_comic_15.jpg'
+import imgComic2Url from '@/assets/img/comic/img_comic_2.jpg'
+import imgComic3Url from '@/assets/img/comic/img_comic_3.jpg'
+import imgComic4Url from '@/assets/img/comic/img_comic_4.jpg'
+import imgComic5Url from '@/assets/img/comic/img_comic_5.jpg'
+import imgComic6Url from '@/assets/img/comic/img_comic_6.jpg'
+import imgComic7Url from '@/assets/img/comic/img_comic_7.jpg'
+import imgComic8Url from '@/assets/img/comic/img_comic_8.jpg'
+import imgComic9Url from '@/assets/img/comic/img_comic_9.jpg'
 import { storeToRefs } from 'pinia'
 import ContentTitle from '../../components/ContentTitle.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
@@ -17,63 +32,63 @@ const layoutProps = {
 const comics = [
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881111-6',
-    img: '/src/assets/img/comic/img_comic_1.jpg',
+    img: imgComic1Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881195-6',
-    img: '/src/assets/img/comic/img_comic_2.jpg',
+    img: imgComic2Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881214-4',
-    img: '/src/assets/img/comic/img_comic_3.jpg',
+    img: imgComic3Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881289-2',
-    img: '/src/assets/img/comic/img_comic_4.jpg',
+    img: imgComic4Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881342-4',
-    img: '/src/assets/img/comic/img_comic_5.jpg',
+    img: imgComic5Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881414-8',
-    img: '/src/assets/img/comic/img_comic_6.jpg',
+    img: imgComic6Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881510-7',
-    img: '/src/assets/img/comic/img_comic_7.jpg',
+    img: imgComic7Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881564-0',
-    img: '/src/assets/img/comic/img_comic_8.jpg',
+    img: imgComic8Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881646-3',
-    img: '/src/assets/img/comic/img_comic_9.jpg',
+    img: imgComic9Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881724-8',
-    img: '/src/assets/img/comic/img_comic_10.jpg',
+    img: imgComic10Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881798-9',
-    img: '/src/assets/img/comic/img_comic_11.jpg',
+    img: imgComic11Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-881866-5',
-    img: '/src/assets/img/comic/img_comic_12.jpg',
+    img: imgComic12Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-882021-7',
-    img: '/src/assets/img/comic/img_comic_13.jpg',
+    img: imgComic13Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-882083-5',
-    img: '/src/assets/img/comic/img_comic_14.jpg',
+    img: imgComic14Url,
   },
   {
     href: 'https://books.shueisha.co.jp/items/contents.html?isbn=978-4-08-882173-3',
-    img: '/src/assets/img/comic/img_comic_15.jpg',
+    img: imgComic15Url,
   },
 ]
 </script>

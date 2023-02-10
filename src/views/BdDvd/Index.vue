@@ -71,9 +71,12 @@ onMounted(() => {
     <div class="opacity-0 translate-y-[25px] effect_item
       [&.active]:opacity-100 [&.active]:translate-y-0 [&.active]:[transition:_transform_.4s_cubic-bezier(.01,_.53,_.37,_.99)_.4s,_opacity_.4s_ease-in_.4s]
       max-md:translate-y-[15px] max-md:[&.active]:translate-y-0">
-      <Season :color="`var(${color})`" :seasons="seasons" li-class="w-[428px]"
-        btn-class="max-md:border-2 max-md:rounded-[5px]" is-active-class="max-md:pt-[8px] max-md:px-0 max-md:pb-[8px]"
-        is-passiv-class="max-md:pt-[8px] max-md:px-0 max-md:pb-[8px]"></Season>
+      <Season :color="`var(${color})`" :seasons="seasons" class="group"
+        li-class="group-[]:w-[428px] group-[]:max-md:w-full"
+        btn-class="group-[]:max-md:border-2 group-[]:max-md:rounded-[5px]"
+        is-active-class="group-[]:max-md:pt-[8px] group-[]:max-md:px-0 group-[]:max-md:pb-[8px]"
+        is-passiv-class="group-[]:max-md:pt-[8px] group-[]:max-md:px-0 group-[]:max-md:pb-[8px]">
+      </Season>
 
       <div class="mb-[30px] text-center effect_item
         max-md:mb-[18px] max-md:text-center">

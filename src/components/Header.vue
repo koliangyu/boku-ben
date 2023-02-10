@@ -113,7 +113,7 @@ onUnmounted(() => {
           max-md:w-[70%] max-md:mt-[45px] max-md:mx-[4.6%] max-md:mb-0 max-md:pb-[30px]">
             <li v-for="(item, index) in navigation" class="mx-0 my-[2.5px]
             max-md:opacity-0 max-md:translate-x-[-10px] max-md:mt-[2.5px] max-md:mx-0 max-md:mb-[4px]
-            max-md:[&.open]:opacity-100 max-md:[&.open]:translate-x-[0] max-md:[&.open]:[transition:_all_.4s_cubic-bezier(.39,_.575,_.565,_1)]
+            max-md:[&.open]:opacity-100 max-md:[&.open]:translate-x-[0] max-md:[&.open]:transition-all max-md:[&.open]:duration-[400ms] max-md:[&.open]:ease-[cubic-bezier(.39,_.575,_.565,_1)]
             max-md:[&.open]:[transition-delay:_var(--my-delay-var)]" :class="{ 'open': open }"
               :style="`--my-delay-var: ${++index * 100}ms`">
               <RouterLink v-if="item.target === null" :to="item.href" class="group inline-block relative h-full py-[8px] pr-0 pl-[20px] text-black font-extrabold text-[22px] font-montserrat tracking-[.075em] no-underline

@@ -1,4 +1,16 @@
 <script setup>
+import imgConstellationUrl from '@/assets/img/special/img_constellation.jpg'
+import imgMillenniumUrl from '@/assets/img/special/img_millennium.jpg'
+import imgMonthlyUrl from '@/assets/img/special/img_monthly.png'
+import imgSp1Url from '@/assets/img/special/img_sp_1.jpg'
+import imgSp2Url from '@/assets/img/special/img_sp_2.jpg'
+import imgSp3Url from '@/assets/img/special/img_sp_3.jpg'
+import imgSp4Url from '@/assets/img/special/img_sp_4.jpg'
+import imgSp5Url from '@/assets/img/special/img_sp_5.jpg'
+import imgSpCardmakerUrl from '@/assets/img/special/img_sp_cardmaker.jpg'
+import imgSpContestUrl from '@/assets/img/special/img_sp_contest.jpg'
+import imgSpStampUrl from '@/assets/img/special/img_sp_stamp.jpg'
+import imgSummerUrl from '@/assets/img/special/img_summer.jpg'
 import { storeToRefs } from 'pinia'
 import ContentTitle from '../../components/ContentTitle.vue'
 import AppLayout from '../../layouts/AppLayout.vue'
@@ -18,62 +30,62 @@ const specials = [
   {
     title: '古橋静流のPC',
     href: '../millennium/',
-    img: '/src/assets/img/special/img_millennium.jpg',
+    img: imgMillenniumUrl,
   },
   {
     title: '秋の星座を見よう',
     href: '../constellation/',
-    img: '/src/assets/img/special/img_constellation.jpg',
+    img: imgConstellationUrl,
   },
   {
     title: '季節ビジュアル',
     href: './monthly/',
-    img: '/src/assets/img/special/img_monthly.png',
+    img: imgMonthlyUrl,
   },
   {
     title: '第２期キービジュアル公開記念！SNS用アイコンプレゼント',
     href: './icon5/',
-    img: '/src/assets/img/special/img_sp_5.jpg',
+    img: imgSp5Url,
   },
   {
     title: 'うるかからの暑中見舞い風壁紙プレゼント',
     href: './summer/',
-    img: '/src/assets/img/special/img_summer.jpg',
+    img: imgSummerUrl,
   },
   {
     title: '推してよ、ティーチャー!! ディスプレイコンテスト',
     href: './contest/',
-    img: '/src/assets/img/special/img_sp_contest.jpg',
+    img: imgSpContestUrl,
   },
   {
     title: 'LINEスタンプ シーン投票募集！',
     href: './stamp/',
-    img: '/src/assets/img/special/img_sp_stamp.jpg',
+    img: imgSpStampUrl,
   },
   {
     title: 'ぼく勉学生証メーカー',
     href: './card/',
-    img: '/src/assets/img/special/img_sp_cardmaker.jpg',
+    img: imgSpCardmakerUrl,
   },
   {
     title: 'LINEアイコンプレゼント',
     href: './icon4/',
-    img: '/src/assets/img/special/img_sp_4.jpg',
+    img: imgSp4Url,
   },
   {
     title: '第三弾キービジュアル公開記念！SNS用アイコンプレゼント',
     href: './icon3/',
-    img: '/src/assets/img/special/img_sp_3.jpg',
+    img: imgSp3Url,
   },
   {
     title: '第二弾キービジュアル公開記念！SNS用アイコンプレゼント',
     href: './icon2/',
-    img: '/src/assets/img/special/img_sp_2.jpg',
+    img: imgSp2Url,
   },
   {
     title: 'アニメ化決定！SNS用アイコンプレゼント',
     href: './icon/',
-    img: '/src/assets/img/special/img_sp_1.jpg',
+    img: imgSp1Url,
   },
 ]
 </script>
