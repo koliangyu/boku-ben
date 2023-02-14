@@ -4,7 +4,7 @@
 set -e
 
 # build
-vite build --mode deploy
+npm run deploy
 
 # navigate into the build output directory
 cd dist

@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "sh ./deploy.sh"
+    "deploy": "vite build --base=/boku-ben/"
   },
   "dependencies": {
     "js-player-module-brightcove": "^6.0.1",
