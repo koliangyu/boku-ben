@@ -1,34 +1,11 @@
 <script setup>
-import asumiImg1Url from '@/assets/img/chara/img_chara_asumi_1.png'
-import fuminoImg1Url from '@/assets/img/chara/img_chara_fumino_1.png'
-import mafuyuImg1Url from '@/assets/img/chara/img_chara_mafuyu_1.png'
-import nariyukiImg1Url from '@/assets/img/chara/img_chara_nariyuki_1.png'
-import rizuImg1Url from '@/assets/img/chara/img_chara_rizu_1.png'
-import urukaImg1Url from '@/assets/img/chara/img_chara_uruka_1.png'
-import asumiThumbImgUrl from '@/assets/img/chara/img_tmb_asumi.png'
-import fuminoThumbImgUrl from '@/assets/img/chara/img_tmb_fumino.png'
-import mafuyuThumbImgUrl from '@/assets/img/chara/img_tmb_mafuyu.png'
-import nariyukiThumbImgUrl from '@/assets/img/chara/img_tmb_nariyuki.png'
-import rizuThumbImgUrl from '@/assets/img/chara/img_tmb_rizu.png'
-import urukaThumbImgUrl from '@/assets/img/chara/img_tmb_uruka.png'
-import asumiImg2PcUrl from '@/assets/img/chara/pc/img_chara_asumi_2.png'
-import fuminoImg2PcUrl from '@/assets/img/chara/pc/img_chara_fumino_2.png'
-import mafuyuImg2PcUrl from '@/assets/img/chara/pc/img_chara_mafuyu_2.png'
-import nariyukiImg2PcUrl from '@/assets/img/chara/pc/img_chara_nariyuki_2.png'
-import rizuImg2PcUrl from '@/assets/img/chara/pc/img_chara_rizu_2.png'
-import urukaImg2PcUrl from '@/assets/img/chara/pc/img_chara_uruka_2.png'
-import asumiImg2SpUrl from '@/assets/img/chara/sp/img_chara_asumi_2.png'
-import fuminoImg2SpUrl from '@/assets/img/chara/sp/img_chara_fumino_2.png'
-import mafuyuImg2SpUrl from '@/assets/img/chara/sp/img_chara_mafuyu_2.png'
-import nariyukiImg2SpUrl from '@/assets/img/chara/sp/img_chara_nariyuki_2.png'
-import rizuImg2SpUrl from '@/assets/img/chara/sp/img_chara_rizu_2.png'
-import urukaImg2SpUrl from '@/assets/img/chara/sp/img_chara_uruka_2.png'
 import { storeToRefs } from 'pinia'
 import { EffectFade, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref } from 'vue'
 import ContentTitle from '../../components/ContentTitle.vue'
 import Season from '../../components/Season.vue'
+import { useAssetsUrl } from '../../composables/useAssetsUrl'
 import AppLayout from '../../layouts/AppLayout.vue'
 import { useThemeStore } from '../../stores/theme'
 import SlideInner from './Partials/SlideInner.vue'
@@ -86,12 +63,12 @@ const characters = [
     ],
     cv: 'CV.逢坂良太',
     intro: '飛び抜けた才能はないものの、<br>ほぼ全教科で８割以上の成績を誇る秀才！<br>家族のために受験・学費免除の<br>「特別ＶＩＰ推薦」を目指している。<br>真面目で面倒見のよい性格だが、<br>教育係として熱心すぎるあまり<br>自分の恋愛には鈍感。',
-    img1: nariyukiImg1Url,
-    img2Pc: nariyukiImg2PcUrl,
-    img2Sp: nariyukiImg2SpUrl,
+    img1: useAssetsUrl('chara/img_chara_nariyuki_1.png'),
+    img2Pc: useAssetsUrl('chara/pc/img_chara_nariyuki_2.png'),
+    img2Sp: useAssetsUrl('chara/sp/img_chara_nariyuki_2.png'),
     thumb: {
       name: '唯我成幸',
-      img: nariyukiThumbImgUrl,
+      img: useAssetsUrl('chara/img_tmb_nariyuki.png'),
     },
   },
   {
@@ -104,12 +81,12 @@ const characters = [
     ],
     cv: 'CV.白石晴香',
     intro: '「文学の森の眠り姫」こと文系の天才で、<br>紡ぎ出す文章は読む者・聞く者すべての心に感動を巻き起こす。<br>一方で理系教科にはめっぽう弱く、<br>数式を見るだけで頭が真っ白に！<br>性格は明るく人当りがよいが、たまに辛辣な言葉も…!?',
-    img1: fuminoImg1Url,
-    img2Pc: fuminoImg2PcUrl,
-    img2Sp: fuminoImg2SpUrl,
+    img1: useAssetsUrl('chara/img_chara_fumino_1.png'),
+    img2Pc: useAssetsUrl('chara/pc/img_chara_fumino_2.png'),
+    img2Sp: useAssetsUrl('chara/sp/img_chara_fumino_2.png'),
     thumb: {
       name: '古橋文乃',
-      img: fuminoThumbImgUrl,
+      img: useAssetsUrl('chara/img_tmb_fumino.png'),
     },
   },
   {
@@ -122,12 +99,12 @@ const characters = [
     ],
     cv: 'CV.富田美憂',
     intro: '「機械仕掛けの親指姫」と呼ばれる理系の天才で、<br>難解な数式も瞬時に解を導く！　<br>理系の考え方が染みついており、<br>性格は生真面目でやや頑固。<br>そのため人心を読み解く文系科目は特に苦手。<br>大好きなアナログゲームも、駆け引き下手で腕前は…。',
-    img1: rizuImg1Url,
-    img2Pc: rizuImg2PcUrl,
-    img2Sp: rizuImg2SpUrl,
+    img1: useAssetsUrl('chara/img_chara_rizu_1.png'),
+    img2Pc: useAssetsUrl('chara/pc/img_chara_rizu_2.png'),
+    img2Sp: useAssetsUrl('chara/sp/img_chara_rizu_2.png'),
     thumb: {
       name: '緒方理珠',
-      img: rizuThumbImgUrl,
+      img: useAssetsUrl('chara/img_tmb_rizu.png'),
     },
   },
   {
@@ -141,12 +118,12 @@ const characters = [
     ],
     cv: 'CV.鈴代紗弓',
     intro: '「白銀の漆黒人魚姫」と呼ばれる水泳の天才。<br>水泳一辺倒で勉強は大の苦手だが、<br>スポーツ推薦のため英語を猛勉強中！<br>成幸とは中学からの付き合いで、密かに想いを寄せている。<br>元気で飾らない性格だが、恋愛となると一気に乙女に!!',
-    img1: urukaImg1Url,
-    img2Pc: urukaImg2PcUrl,
-    img2Sp: urukaImg2SpUrl,
+    img1: useAssetsUrl('chara/img_chara_uruka_1.png'),
+    img2Pc: useAssetsUrl('chara/pc/img_chara_uruka_2.png'),
+    img2Sp: useAssetsUrl('chara/sp/img_chara_uruka_2.png'),
     thumb: {
       name: '武元うるか',
-      img: urukaThumbImgUrl,
+      img: useAssetsUrl('chara/img_tmb_uruka.png'),
     },
   },
   {
@@ -159,12 +136,12 @@ const characters = [
     ],
     cv: 'CV.Lynn',
     intro: '一ノ瀬学園教師。<br>文乃と理珠の最初の教育係で、<br>２人に進路変更を勧めたことも。<br>冷徹な言動で周囲から恐れられているが、<br>生徒思いの優しい先生。<br>有能で仕事もきっちりこなす。<br>しかし私生活では相当ズボラで、さらにドジっ娘な一面も!?',
-    img1: mafuyuImg1Url,
-    img2Pc: mafuyuImg2PcUrl,
-    img2Sp: mafuyuImg2SpUrl,
+    img1: useAssetsUrl('chara/img_chara_mafuyu_1.png'),
+    img2Pc: useAssetsUrl('chara/pc/img_chara_mafuyu_2.png'),
+    img2Sp: useAssetsUrl('chara/sp/img_chara_mafuyu_2.png'),
     thumb: {
       name: '桐須真冬',
-      img: mafuyuThumbImgUrl,
+      img: useAssetsUrl('chara/img_tmb_mafuyu.png'),
     },
   },
   {
@@ -179,12 +156,12 @@ const characters = [
     ],
     cv: 'CV.朝日奈丸佳',
     intro: '浪人して受験勉強に励む一ノ瀬学園のＯＧ。<br>医学部を志望しつつも理科全般が苦手で、<br>後輩の成幸に教わることもしばしば。<br>ある事情で成幸と恋人同士のフリをすることになり、<br>純情な成幸をからかっては楽しんでいる様子だ。',
-    img1: asumiImg1Url,
-    img2Pc: asumiImg2PcUrl,
-    img2Sp: asumiImg2SpUrl,
+    img1: useAssetsUrl('chara/img_chara_asumi_1.png'),
+    img2Pc: useAssetsUrl('chara/pc/img_chara_asumi_2.png'),
+    img2Sp: useAssetsUrl('chara/sp/img_chara_asumi_2.png'),
     thumb: {
       name: '小美浪あすみ',
-      img: asumiThumbImgUrl,
+      img: useAssetsUrl('chara/img_tmb_asumi.png'),
     },
   },
 ]

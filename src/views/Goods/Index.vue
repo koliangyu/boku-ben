@@ -1,18 +1,7 @@
 <script setup>
-import goods3087ThumbnailUrl from '@/assets/img/goods/goods_3087_thumbnail.jpg'
-import goods3088ThumbnailUrl from '@/assets/img/goods/goods_3088_thumbnail.jpg'
-import goods3089ThumbnailUrl from '@/assets/img/goods/goods_3089_thumbnail.jpg'
-import goods3090ThumbnailUrl from '@/assets/img/goods/goods_3090_thumbnail.jpg'
-import goods3091ThumbnailUrl from '@/assets/img/goods/goods_3091_thumbnail.jpg'
-import goods3092ThumbnailUrl from '@/assets/img/goods/goods_3092_thumbnail.jpg'
-import goods3093ThumbnailUrl from '@/assets/img/goods/goods_3093_thumbnail.jpg'
-import goods3094ThumbnailUrl from '@/assets/img/goods/goods_3094_thumbnail.jpg'
-import goods3095ThumbnailUrl from '@/assets/img/goods/goods_3095_thumbnail.jpg'
-import goods3096ThumbnailUrl from '@/assets/img/goods/goods_3096_thumbnail.jpg'
-import goods3097ThumbnailUrl from '@/assets/img/goods/goods_3097_thumbnail.jpg'
-import goods3098ThumbnailUrl from '@/assets/img/goods/goods_3098_thumbnail.jpg'
 import { storeToRefs } from 'pinia'
 import ContentTitle from '../../components/ContentTitle.vue'
+import { useAssetsUrl } from '../../composables/useAssetsUrl'
 import AppLayout from '../../layouts/AppLayout.vue'
 import { useThemeStore } from '../../stores/theme'
 
@@ -30,62 +19,62 @@ const goods = [
   {
     name: 'トレーディングスクエア缶バッジ',
     href: './?item_id=3098',
-    img: goods3098ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3098_thumbnail.jpg'),
   },
   {
     name: 'マウスパッド',
     href: './?item_id=3097',
-    img: goods3097ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3097_thumbnail.jpg'),
   },
   {
     name: '缶バッジコレクション',
     href: './?item_id=3096',
-    img: goods3096ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3096_thumbnail.jpg'),
   },
   {
     name: '手帳型スマートフォンケース 古橋文乃/緒方理珠/武元うるか/桐須真冬/小美浪あすみ',
     href: './?item_id=3095',
-    img: goods3095ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3095_thumbnail.jpg'),
   },
   {
     name: 'シャープペンシル 古橋文乃/緒方理珠/武元うるか/桐須真冬/小美浪あすみ',
     href: './?item_id=3094',
-    img: goods3094ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3094_thumbnail.jpg'),
   },
   {
     name: 'クリアファイルセット古橋文乃＆緒方理珠/武元うるか＆桐須真冬/小美浪あすみ＆集合',
     href: './?item_id=3093',
-    img: goods3093ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3093_thumbnail.jpg'),
   },
   {
     name: 'アクリルフィギュア 古橋文乃/緒方理珠/武元うるか/桐須真冬/小美浪あすみ',
     href: './?item_id=3092',
-    img: goods3092ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3092_thumbnail.jpg'),
   },
   {
     name: 'B2タペストリー 古橋文乃＆緒方理珠＆武元うるか/桐須真冬＆小美浪あすみ',
     href: './?item_id=3091',
-    img: goods3091ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3091_thumbnail.jpg'),
   },
   {
     name: '缶バッジ',
     href: './?item_id=3090',
-    img: goods3090ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3090_thumbnail.jpg'),
   },
   {
     name: 'レザーパスケース',
     href: './?item_id=3089',
-    img: goods3089ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3089_thumbnail.jpg'),
   },
   {
     name: 'メガネケースセット',
     href: './?item_id=3088',
-    img: goods3088ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3088_thumbnail.jpg'),
   },
   {
     name: 'まるっとレザーケース',
     href: './?item_id=3087',
-    img: goods3087ThumbnailUrl,
+    img: useAssetsUrl('goods/goods_3087_thumbnail.jpg'),
   },
 ]
 </script>
